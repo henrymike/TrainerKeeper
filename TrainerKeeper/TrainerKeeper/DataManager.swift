@@ -25,7 +25,7 @@ class DataManager: NSObject {
             if error == nil {
                 print("Got Members Data")
                 self.membersDataArray = objects!
-                print("Members Array: \(self.membersDataArray)")
+//                print("Members Array: \(self.membersDataArray)")
                 dispatch_async(dispatch_get_main_queue()) {
                     NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "receivedMembersDataFromServer", object: nil))
                 }
@@ -42,7 +42,7 @@ class DataManager: NSObject {
             if error == nil {
                 print("Got Classes Data")
                 self.classesDataArray = objects!
-                print("Classes Array: \(self.classesDataArray)")
+//                print("Classes Array: \(self.classesDataArray)")
                 dispatch_async(dispatch_get_main_queue()) {
                     NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "receivedClassesDataFromServer", object: nil))
                 }

@@ -9,21 +9,62 @@
 import UIKit
 import Parse
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
+    @IBOutlet weak var membersTableView :UITableView!
     
     
     
-    //MARK: - Display Methods
+    //MARK: - Table View Methods
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataManager.membersDataArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let memberCell = tableView.dequeueReusableCellWithIdentifier("memberCell", forIndexPath:
+        indexPath) as UITableViewCell
+        let currentMember = dataManager.membersDataArray[indexPath.row]
+//        let currentClass = dataManager.classesDataArray[indexPath.row]
+        memberCell.textLabel!.text = "\((currentMember["firstName"] as! String!)) \((currentMember["lastName"] as! String!))"
+//        memberCell.detailTextLabel!.text = currentClass.objectForKey("groupName") as! String!
+        
+        return memberCell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let memberToDelete = dataManager.membersDataArray[indexPath.row]
+            do {
+                try memberToDelete.delete()
+            } catch {
+                print("Delete Error")
+            }
+            dataManager.fetchMembersFromParse()
+        }
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destController = segue.destinationViewController as! MemberDetailViewController
+        if segue.identifier == "segueMemberEdit" {
+            let indexPath = membersTableView.indexPathForSelectedRow!
+            let selectedMember = dataManager.membersDataArray[indexPath.row]
+            destController.selectedMember = selectedMember
+            membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+    }
+    
     
     func newMembersDataReceived() {
+        membersTableView.reloadData()
         
     }
     
     func newClassesDataReceived() {
-        
+        print("Void")
     }
     
     
@@ -39,6 +80,11 @@ class ViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newMembersDataReceived", name: "receivedMembersDataFromServer", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newClassesDataReceived", name: "receivedClassesDataFromServer", object: nil)
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        dataManager.fetchMembersFromParse()
     }
 
     override func didReceiveMemoryWarning() {
