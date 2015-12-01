@@ -27,9 +27,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let memberCell = tableView.dequeueReusableCellWithIdentifier("memberCell", forIndexPath:
         indexPath) as UITableViewCell
         let currentMember = dataManager.membersDataArray[indexPath.row]
-//        let currentClass = dataManager.classesDataArray[indexPath.row]
         memberCell.textLabel!.text = "\((currentMember["firstName"] as! String!)) \((currentMember["lastName"] as! String!))"
-//        memberCell.detailTextLabel!.text = currentClass.objectForKey("groupName") as! String!
+        memberCell.detailTextLabel!.text = currentMember["parent"]["groupName"] as! String!
         
         return memberCell
     }
@@ -37,15 +36,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let memberToDelete = dataManager.membersDataArray[indexPath.row]
-            do {
-                try memberToDelete.delete()
-            } catch {
-                print("Delete Error")
-            }
+            memberToDelete.deleteInBackground()
             dataManager.fetchMembersFromParse()
         }
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destController = segue.destinationViewController as! MemberDetailViewController
@@ -64,7 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func newClassesDataReceived() {
-        print("Void")
+
     }
     
     

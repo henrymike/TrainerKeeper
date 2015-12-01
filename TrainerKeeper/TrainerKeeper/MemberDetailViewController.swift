@@ -12,50 +12,58 @@ import Parse
 class MemberDetailViewController: UIViewController {
     
     //MARK: - Properties
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    var selectedMember = PFObject(className: "Members")
+    var selectedMember :PFObject?
+    var selectedClass  :PFObject?
     
     @IBOutlet weak var firstNameTextField   :UITextField!
     @IBOutlet weak var lastNameTextField    :UITextField!
+    @IBOutlet weak var classNameTextField   :UITextField!
 
     
     //MARK: - Display Methods
     
     func displaySelectedMemberProfile() {
-        if selectedMember["firstName"] != nil {
-            firstNameTextField.text = (selectedMember["firstName"] as! String)
+        if selectedMember!["firstName"] != nil {
+            firstNameTextField.text = (selectedMember!["firstName"] as! String)
         } else {
-            print("Error")
+            print("First Name Error")
         }
-        if selectedMember["lastName"] != nil {
-            lastNameTextField.text = (selectedMember["lastName"] as! String)
+        if selectedMember!["lastName"] != nil {
+            lastNameTextField.text = (selectedMember!["lastName"] as! String)
         } else {
-            print("Error")
+            print("Last Name Error")
+        }
+        if selectedMember!["parent"] != nil{
+            classNameTextField.text = (selectedMember!["parent"]["groupName"] as! String)
+        } else {
+            print("Class Name Error")
         }
     }
     
     @IBAction func deleteButtonPressed(sender: UIBarButtonItem) {
-        do {
-            try selectedMember.delete()
-        } catch {
-            print("Delete Error")
-        }
+        selectedMember!.deleteInBackground()
         navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func saveButtonPressed(sender: UIBarButtonItem) {
         print("Save Pressed")
-        selectedMember["firstName"] = firstNameTextField.text
-        selectedMember["lastName"] = lastNameTextField.text
+        
+        //TODO: SHOULDN'T CREATE CLASS HERE SHOULD USE SELECTED FROM LIST
+        let selectedClass = PFObject(className: "Classes")
+        selectedClass["groupName"] = classNameTextField.text
+
+        if selectedMember == nil {
+            selectedMember = PFObject(className: "Members")
+        }
+        selectedMember!["firstName"] = firstNameTextField.text
+        selectedMember!["lastName"] = lastNameTextField.text
+        selectedMember!["parent"] = selectedClass
+        
         saveAndPop()
     }
     
     func saveAndPop() {
-        do {
-            try selectedMember.save()
-        } catch {
-            print("Save Error")
-        }
+        selectedMember!.saveInBackground()
         navigationController?.popViewControllerAnimated(true)
     }
     
@@ -64,7 +72,7 @@ class MemberDetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        if selectedMember != "" {
+        if selectedMember != nil {
             displaySelectedMemberProfile()
         }
         
