@@ -9,15 +9,17 @@
 import UIKit
 import Parse
 
-class MemberDetailViewController: UIViewController {
+class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     //MARK: - Properties
+    var dataManager = DataManager.sharedInstance
     var selectedMember :PFObject?
     var selectedClass  :PFObject?
     
     @IBOutlet weak var firstNameTextField   :UITextField!
     @IBOutlet weak var lastNameTextField    :UITextField!
     @IBOutlet weak var classNameTextField   :UITextField!
+    @IBOutlet weak var classPicker          :UIPickerView!
 
     
     //MARK: - Display Methods
@@ -66,6 +68,22 @@ class MemberDetailViewController: UIViewController {
         selectedMember!.saveInBackground()
         navigationController?.popViewControllerAnimated(true)
     }
+    
+    
+    //MARK: - Picker View Methods
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return dataManager.classesDataArray.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return (dataManager.classesDataArray[row].objectForKey("groupName") as! String)
+    }
+    
     
     
     //MARK: - Life Cycle Methods

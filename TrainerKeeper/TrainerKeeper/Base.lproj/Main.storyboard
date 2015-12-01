@@ -116,6 +116,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2p-vt-sC1">
+                                <rect key="frame" x="59" y="229" width="284" height="143"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="dataSource" destination="RNd-5d-aj1" id="HdF-4n-4Dd"/>
+                                    <outlet property="delegate" destination="RNd-5d-aj1" id="fOm-kJ-b8o"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,6 +144,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="classNameTextField" destination="6aO-mc-fPe" id="FHP-BY-XX7"/>
+                        <outlet property="classPicker" destination="X2p-vt-sC1" id="bAc-49-pv6"/>
                         <outlet property="firstNameTextField" destination="uv3-2n-g3W" id="N2B-Zf-DPi"/>
                         <outlet property="lastNameTextField" destination="BiC-JU-8vT" id="BTU-lO-SHw"/>
                     </connections>
