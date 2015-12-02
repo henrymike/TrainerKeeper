@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		553F3EA71C0F9D6000BC3375 /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F3EA61C0F9D6000BC3375 /* ClassesViewController.swift */; };
 		55B549F11C0C93C3002F504B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B549F01C0C93C3002F504B /* AppDelegate.swift */; };
 		55B549F31C0C93C3002F504B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B549F21C0C93C3002F504B /* ViewController.swift */; };
 		55B549F61C0C93C3002F504B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B549F41C0C93C3002F504B /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		36DB6594E1E7E19D1AA3128B /* Pods-TrainerKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainerKeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainerKeeper/Pods-TrainerKeeper.debug.xcconfig"; sourceTree = "<group>"; };
+		553F3EA61C0F9D6000BC3375 /* ClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
 		55B549ED1C0C93C2002F504B /* TrainerKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainerKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B549F01C0C93C3002F504B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B549F21C0C93C3002F504B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				55B549F01C0C93C3002F504B /* AppDelegate.swift */,
 				55B549F21C0C93C3002F504B /* ViewController.swift */,
+				553F3EA61C0F9D6000BC3375 /* ClassesViewController.swift */,
 				55B54A041C0CDBEC002F504B /* MemberDetailViewController.swift */,
 				55B54A021C0CA2D5002F504B /* DataManager.swift */,
 				55B549F41C0C93C3002F504B /* Main.storyboard */,
@@ -218,6 +221,7 @@
 			files = (
 				55B549F31C0C93C3002F504B /* ViewController.swift in Sources */,
 				55B54A031C0CA2D5002F504B /* DataManager.swift in Sources */,
+				553F3EA71C0F9D6000BC3375 /* ClassesViewController.swift in Sources */,
 				55B54A051C0CDBEC002F504B /* MemberDetailViewController.swift in Sources */,
 				55B549F11C0C93C3002F504B /* AppDelegate.swift in Sources */,
 			);

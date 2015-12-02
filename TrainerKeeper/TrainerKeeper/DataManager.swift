@@ -21,6 +21,7 @@ class DataManager: NSObject {
     
     func fetchMembersFromParse() {
         let fetchMembers = PFQuery(className: "Members")
+        fetchMembers.addAscendingOrder("firstName")
         fetchMembers.includeKey("parent")
         fetchMembers.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {

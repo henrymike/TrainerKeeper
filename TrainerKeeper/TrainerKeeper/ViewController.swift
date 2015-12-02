@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         indexPath) as UITableViewCell
         let currentMember = dataManager.membersDataArray[indexPath.row]
         
-        memberCell.textLabel!.text = "\((currentMember["firstName"] as! String!)) \((currentMember["lastName"] as! String!))"
+        memberCell.textLabel!.text = "\(currentMember["firstName"] as! String!) \(currentMember["lastName"] as! String!)"
         
 //        if currentMember["parent"]["groupName"] != nil{
 //            memberCell.detailTextLabel!.text = currentMember["parent"]["groupName"] as! String!
@@ -48,8 +48,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destController = segue.destinationViewController as! MemberDetailViewController
         if segue.identifier == "segueMemberEdit" {
+            let destController = segue.destinationViewController as! MemberDetailViewController
             let indexPath = membersTableView.indexPathForSelectedRow!
             let selectedMember = dataManager.membersDataArray[indexPath.row]
             destController.selectedMember = selectedMember
@@ -79,7 +79,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newMembersDataReceived", name: "receivedMembersDataFromServer", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newClassesDataReceived", name: "receivedClassesDataFromServer", object: nil)
-
     }
     
     override func viewDidAppear(animated: Bool) {

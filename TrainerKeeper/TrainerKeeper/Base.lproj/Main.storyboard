@@ -7,7 +7,7 @@
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Members-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TrainerKeeper" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,7 +71,12 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ihc-5Z-Jyv" secondAttribute="bottom" id="g1N-FI-osm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="G54-LK-nwK">
+                    <navigationItem key="navigationItem" title="Members" id="G54-LK-nwK">
+                        <barButtonItem key="leftBarButtonItem" title="Classes" id="axd-08-GhU">
+                            <connections>
+                                <segue destination="5Pa-xg-eYY" kind="show" identifier="segueClasses" id="aN1-Jr-nI7"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fSc-ZA-NtQ">
                             <connections>
                                 <segue destination="RNd-5d-aj1" kind="show" identifier="segueMemberAdd" id="qM4-NW-vbV"/>
@@ -146,6 +151,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIS-T4-Bp4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1748" y="222"/>
+        </scene>
+        <!--Classes-->
+        <scene sceneID="tUk-x5-fUg">
+            <objects>
+                <viewController id="5Pa-xg-eYY" customClass="ClassesViewController" customModule="TrainerKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="doD-yw-GKL"/>
+                        <viewControllerLayoutGuide type="bottom" id="KG8-sw-3kX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mzs-yS-li3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lza-3F-GrL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="classCell" textLabel="6dO-JE-jZN" style="IBUITableViewCellStyleDefault" id="NTr-dj-48b">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NTr-dj-48b" id="mdW-4l-nnP">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6dO-JE-jZN">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5Pa-xg-eYY" id="lyz-Rz-cWx"/>
+                                    <outlet property="delegate" destination="5Pa-xg-eYY" id="Xv6-HR-4de"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lza-3F-GrL" firstAttribute="leading" secondItem="Mzs-yS-li3" secondAttribute="leadingMargin" constant="-20" id="12p-cv-hiS"/>
+                            <constraint firstItem="KG8-sw-3kX" firstAttribute="top" secondItem="Lza-3F-GrL" secondAttribute="bottom" id="ahg-gl-3bl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lza-3F-GrL" secondAttribute="trailing" constant="-20" id="f4Z-nG-r7l"/>
+                            <constraint firstItem="Lza-3F-GrL" firstAttribute="top" secondItem="doD-yw-GKL" secondAttribute="bottom" constant="-64" id="h2u-BG-kuj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Classes" id="FiL-69-amA"/>
+                    <connections>
+                        <outlet property="classesTableView" destination="Lza-3F-GrL" id="W77-vQ-u4Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iz6-tR-1NW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="923"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NUy-wQ-1h6">
