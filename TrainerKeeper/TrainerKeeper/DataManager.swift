@@ -24,8 +24,8 @@ class DataManager: NSObject {
         fetchMembers.includeKey("parent")
         fetchMembers.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
-                let firstMember = objects![6]
-                print("Class Name: \(firstMember["parent"]["groupName"])")
+//                let firstMember = objects![6]
+//                print("Class Name: \(firstMember["parent"]["groupName"])")
                 print("Got Members Data")
                 self.membersDataArray = objects!
 //                print("Members Array: \(self.membersDataArray)")

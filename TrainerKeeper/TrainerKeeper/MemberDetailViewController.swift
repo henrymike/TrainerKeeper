@@ -15,6 +15,7 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
     var dataManager = DataManager.sharedInstance
     var selectedMember :PFObject?
     var selectedClass  :PFObject?
+    var memberClass   :String?
     
     @IBOutlet weak var firstNameTextField   :UITextField!
     @IBOutlet weak var lastNameTextField    :UITextField!
@@ -35,7 +36,7 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
         } else {
             print("Last Name Error")
         }
-        if selectedMember!["parent"] != nil{
+        if selectedMember!["parent"]["groupName"] != nil{
             classNameTextField.text = (selectedMember!["parent"]["groupName"] as! String)
         } else {
             print("Class Name Error")
@@ -52,7 +53,8 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         //TODO: SHOULDN'T CREATE CLASS HERE SHOULD USE SELECTED FROM LIST
         let selectedClass = PFObject(className: "Classes")
-        selectedClass["groupName"] = classNameTextField.text
+//        selectedClass["groupName"] = classNameTextField.text
+        selectedClass["groupName"] = memberClass
 
         if selectedMember == nil {
             selectedMember = PFObject(className: "Members")
@@ -60,6 +62,7 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
         selectedMember!["firstName"] = firstNameTextField.text
         selectedMember!["lastName"] = lastNameTextField.text
         selectedMember!["parent"] = selectedClass
+        
         
         saveAndPop()
     }
@@ -84,6 +87,16 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
         return (dataManager.classesDataArray[row].objectForKey("groupName") as! String)
     }
     
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selection = classPicker.selectedRowInComponent(0)
+        let selectedArray = dataManager.classesDataArray[selection]
+        let selectedItem = selectedArray.objectForKey("groupName") as! String
+        memberClass = selectedItem
+        print("Member Class: \(memberClass!)")
+
+    }
+    
+    
     
     
     //MARK: - Life Cycle Methods
@@ -93,8 +106,18 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
         if selectedMember != nil {
             displaySelectedMemberProfile()
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         
-        
+        // set initial picker value if Class has been assigned to Member
+        if selectedMember!["parent"]["groupName"] != nil{
+            let parent = selectedMember!["parent"] as! PFObject
+            let index = dataManager.classesDataArray.indexOf(parent)!
+//            print("Index \(index)")
+            classPicker.selectRow(index, inComponent: 0, animated: false)
+        }
     }
     
 }
