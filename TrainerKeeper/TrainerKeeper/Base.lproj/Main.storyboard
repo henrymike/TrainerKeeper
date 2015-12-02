@@ -86,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="1057" y="222"/>
         </scene>
-        <!--Member-->
+        <!--Member Profile-->
         <scene sceneID="YMl-Ia-ZoJ">
             <objects>
                 <viewController id="RNd-5d-aj1" customClass="MemberDetailViewController" customModule="TrainerKeeper" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,12 +110,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aO-mc-fPe">
-                                <rect key="frame" x="59" y="177" width="214" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2p-vt-sC1">
                                 <rect key="frame" x="59" y="229" width="284" height="143"/>
                                 <animations/>
@@ -128,9 +122,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Member" id="vri-NN-bmv">
+                    <navigationItem key="navigationItem" title="Member Profile" id="vri-NN-bmv">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="JmP-cb-5ks">
+                            <barButtonItem enabled="NO" systemItem="save" id="JmP-cb-5ks">
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="RNd-5d-aj1" id="C4Y-3g-9rJ"/>
                                 </connections>
@@ -143,10 +137,10 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="classNameTextField" destination="6aO-mc-fPe" id="FHP-BY-XX7"/>
                         <outlet property="classPicker" destination="X2p-vt-sC1" id="bAc-49-pv6"/>
                         <outlet property="firstNameTextField" destination="uv3-2n-g3W" id="N2B-Zf-DPi"/>
                         <outlet property="lastNameTextField" destination="BiC-JU-8vT" id="BTU-lO-SHw"/>
+                        <outlet property="saveBarButtonItem" destination="JmP-cb-5ks" id="Phl-7S-B8T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIS-T4-Bp4" userLabel="First Responder" sceneMemberID="firstResponder"/>

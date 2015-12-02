@@ -41,6 +41,7 @@ class DataManager: NSObject {
     
     func fetchClassesFromParse() {
         let fetchClasses = PFQuery(className: "Classes")
+        fetchClasses.orderByAscending("groupName")
         fetchClasses.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
                 print("Got Classes Data")

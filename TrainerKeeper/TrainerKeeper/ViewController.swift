@@ -27,8 +27,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let memberCell = tableView.dequeueReusableCellWithIdentifier("memberCell", forIndexPath:
         indexPath) as UITableViewCell
         let currentMember = dataManager.membersDataArray[indexPath.row]
+        
         memberCell.textLabel!.text = "\((currentMember["firstName"] as! String!)) \((currentMember["lastName"] as! String!))"
-        memberCell.detailTextLabel!.text = currentMember["parent"]["groupName"] as! String!
+        
+//        if currentMember["parent"]["groupName"] != nil{
+//            memberCell.detailTextLabel!.text = currentMember["parent"]["groupName"] as! String!
+//        } else {
+//            print("No Group for Member \(currentMember)")
+//        }
         
         return memberCell
     }
@@ -76,8 +82,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
         dataManager.fetchMembersFromParse()
     }
 

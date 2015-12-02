@@ -15,12 +15,11 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
     var dataManager = DataManager.sharedInstance
     var selectedMember :PFObject?
     var selectedClass  :PFObject?
-    var memberClass   :String?
     
     @IBOutlet weak var firstNameTextField   :UITextField!
     @IBOutlet weak var lastNameTextField    :UITextField!
-    @IBOutlet weak var classNameTextField   :UITextField!
     @IBOutlet weak var classPicker          :UIPickerView!
+    @IBOutlet weak var saveBarButtonItem    :UIBarButtonItem!
 
     
     //MARK: - Display Methods
@@ -36,11 +35,6 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
         } else {
             print("Last Name Error")
         }
-        if selectedMember!["parent"]["groupName"] != nil{
-            classNameTextField.text = (selectedMember!["parent"]["groupName"] as! String)
-        } else {
-            print("Class Name Error")
-        }
     }
     
     @IBAction func deleteButtonPressed(sender: UIBarButtonItem) {
@@ -51,18 +45,12 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBAction func saveButtonPressed(sender: UIBarButtonItem) {
         print("Save Pressed")
         
-        //TODO: SHOULDN'T CREATE CLASS HERE SHOULD USE SELECTED FROM LIST
-        let selectedClass = PFObject(className: "Classes")
-//        selectedClass["groupName"] = classNameTextField.text
-        selectedClass["groupName"] = memberClass
-
         if selectedMember == nil {
             selectedMember = PFObject(className: "Members")
         }
         selectedMember!["firstName"] = firstNameTextField.text
         selectedMember!["lastName"] = lastNameTextField.text
         selectedMember!["parent"] = selectedClass
-        
         
         saveAndPop()
     }
@@ -89,13 +77,9 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selection = classPicker.selectedRowInComponent(0)
-        let selectedArray = dataManager.classesDataArray[selection]
-        let selectedItem = selectedArray.objectForKey("groupName") as! String
-        memberClass = selectedItem
-        print("Member Class: \(memberClass!)")
-
+        selectedClass = dataManager.classesDataArray[selection]
+        saveBarButtonItem.enabled = true
     }
-    
     
     
     
@@ -112,12 +96,19 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
         super.viewDidAppear(true)
         
         // set initial picker value if Class has been assigned to Member
-        if selectedMember!["parent"]["groupName"] != nil{
+        guard let uSelectedMember = selectedMember else {
+            return
+        }
+        guard let uSelectedParent = uSelectedMember["parent"] else {
+            return
+        }
+        if uSelectedParent["groupName"] != nil {
             let parent = selectedMember!["parent"] as! PFObject
             let index = dataManager.classesDataArray.indexOf(parent)!
-//            print("Index \(index)")
             classPicker.selectRow(index, inComponent: 0, animated: false)
+            saveBarButtonItem.enabled = true
         }
+        
     }
     
 }
