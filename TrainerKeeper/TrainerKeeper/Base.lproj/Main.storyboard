@@ -72,11 +72,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Members" id="G54-LK-nwK">
-                        <barButtonItem key="leftBarButtonItem" title="Classes" id="axd-08-GhU">
-                            <connections>
-                                <segue destination="5Pa-xg-eYY" kind="show" identifier="segueClasses" id="aN1-Jr-nI7"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Classes" id="axd-08-GhU">
+                                <connections>
+                                    <segue destination="5Pa-xg-eYY" kind="show" identifier="segueClasses" id="aN1-Jr-nI7"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Exercises" id="BZG-UR-qAd">
+                                <connections>
+                                    <segue destination="TzJ-xI-Qk0" kind="show" id="2qB-ds-5GR"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fSc-ZA-NtQ">
                             <connections>
                                 <segue destination="RNd-5d-aj1" kind="show" identifier="segueMemberAdd" id="qM4-NW-vbV"/>
@@ -231,6 +238,77 @@
             </objects>
             <point key="canvasLocation" x="1057" y="923"/>
         </scene>
+        <!--Exercises-->
+        <scene sceneID="qfV-tJ-OXa">
+            <objects>
+                <viewController id="TzJ-xI-Qk0" customClass="ExercisesViewController" customModule="TrainerKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hMk-0o-h88"/>
+                        <viewControllerLayoutGuide type="bottom" id="L5X-Lo-PZL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ibb-Si-SDU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l6H-Bw-Q4h">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="exerciseCell" textLabel="32U-xr-vVU" style="IBUITableViewCellStyleDefault" id="B48-mc-vvM">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B48-mc-vvM" id="dEh-FJ-89C">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="32U-xr-vVU">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <segue destination="wc8-L8-aU8" kind="show" identifier="segueExerciseEdit" id="AcQ-CB-1vw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TzJ-xI-Qk0" id="ygC-XZ-7KR"/>
+                                    <outlet property="delegate" destination="TzJ-xI-Qk0" id="okD-P0-Fpa"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l6H-Bw-Q4h" firstAttribute="top" secondItem="hMk-0o-h88" secondAttribute="bottom" constant="-64" id="Jgr-mF-Xap"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l6H-Bw-Q4h" secondAttribute="trailing" constant="-20" id="cwu-qx-ZV6"/>
+                            <constraint firstItem="L5X-Lo-PZL" firstAttribute="top" secondItem="l6H-Bw-Q4h" secondAttribute="bottom" id="hXm-VQ-c84"/>
+                            <constraint firstItem="l6H-Bw-Q4h" firstAttribute="leading" secondItem="ibb-Si-SDU" secondAttribute="leadingMargin" constant="-20" id="t9z-bQ-agR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Exercises" id="9cx-4J-VdO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Lel-rn-sPZ">
+                            <connections>
+                                <segue destination="wc8-L8-aU8" kind="show" identifier="segueExerciseAdd" id="7No-L6-eao"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="exercisesTableView" destination="l6H-Bw-Q4h" id="OCG-Z6-6Z7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RmC-gw-YvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="1627"/>
+        </scene>
         <!--Classes Detail-->
         <scene sceneID="11D-h5-T1W">
             <objects>
@@ -306,6 +384,50 @@
             </objects>
             <point key="canvasLocation" x="1748" y="923"/>
         </scene>
+        <!--Exercise Detail-->
+        <scene sceneID="4y3-60-XZo">
+            <objects>
+                <viewController id="wc8-L8-aU8" customClass="ExercisesDetailViewController" customModule="TrainerKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wwe-CX-L5B"/>
+                        <viewControllerLayoutGuide type="bottom" id="qAg-ge-Z4J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HP8-2Y-7rc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Exercise Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Nx-Yk-SJc">
+                                <rect key="frame" x="49" y="122" width="286" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Exercise Detail" id="h35-xd-Szx">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="VJC-qd-3CD">
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="wc8-L8-aU8" id="P8e-zK-uXv"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="3eV-YA-Few">
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="wc8-L8-aU8" id="nTf-d9-AId"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="exerciseNameTextField" destination="3Nx-Yk-SJc" id="5Bl-Rr-ftl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5rf-Pg-aIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="1627"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="NUy-wQ-1h6">
             <objects>
@@ -328,6 +450,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="qM4-NW-vbV"/>
-        <segue reference="hRA-jv-4MA"/>
+        <segue reference="Tvf-O9-y80"/>
+        <segue reference="7No-L6-eao"/>
     </inferredMetricsTieBreakers>
 </document>
