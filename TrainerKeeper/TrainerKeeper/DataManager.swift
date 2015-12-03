@@ -60,9 +60,9 @@ class DataManager: NSObject {
     }
     
     func fetchExercisesFromParse() {
-        let fetchClasses = PFQuery(className: "Exercises")
-        fetchClasses.orderByAscending("name")
-        fetchClasses.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+        let fetchExercises = PFQuery(className: "Exercises")
+        fetchExercises.orderByAscending("name")
+        fetchExercises.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
                 print("Got Exercises Data")
                 self.exercisesDataArray = objects!
