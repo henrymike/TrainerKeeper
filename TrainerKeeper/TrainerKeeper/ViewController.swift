@@ -63,10 +63,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    func newClassesDataReceived() {
-
-    }
-    
     
     
     //MARK: - Life Cycle Methods
@@ -78,7 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         dataManager.fetchClassesFromParse()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newMembersDataReceived", name: "receivedMembersDataFromServer", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newClassesDataReceived", name: "receivedClassesDataFromServer", object: nil)
+        
     }
     
     override func viewDidAppear(animated: Bool) {

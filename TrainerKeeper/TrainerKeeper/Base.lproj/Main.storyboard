@@ -169,7 +169,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="classCell" textLabel="6dO-JE-jZN" style="IBUITableViewCellStyleDefault" id="NTr-dj-48b">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="classCell" textLabel="6dO-JE-jZN" detailTextLabel="AeE-AY-nV1" style="IBUITableViewCellStyleSubtitle" id="NTr-dj-48b">
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NTr-dj-48b" id="mdW-4l-nnP">
@@ -177,10 +177,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6dO-JE-jZN">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AeE-AY-nV1">
+                                                    <rect key="frame" x="15" y="25" width="31" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -188,6 +196,9 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="0Pv-vb-dVY" kind="show" identifier="segueClassEdit" id="hRA-jv-4MA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -205,7 +216,13 @@
                             <constraint firstItem="Lza-3F-GrL" firstAttribute="top" secondItem="doD-yw-GKL" secondAttribute="bottom" constant="-64" id="h2u-BG-kuj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Classes" id="FiL-69-amA"/>
+                    <navigationItem key="navigationItem" title="Classes" id="FiL-69-amA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7QI-Ca-pzk">
+                            <connections>
+                                <segue destination="0Pv-vb-dVY" kind="show" identifier="segueClassAdd" id="Tvf-O9-y80"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="classesTableView" destination="Lza-3F-GrL" id="W77-vQ-u4Z"/>
                     </connections>
@@ -213,6 +230,81 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iz6-tR-1NW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="923"/>
+        </scene>
+        <!--Classes Detail-->
+        <scene sceneID="11D-h5-T1W">
+            <objects>
+                <viewController id="0Pv-vb-dVY" customClass="ClassesDetailViewController" customModule="TrainerKeeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ebt-gY-Zyd"/>
+                        <viewControllerLayoutGuide type="bottom" id="v6Y-3a-FN5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gl0-et-3gw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-eI-aKY">
+                                <rect key="frame" x="59" y="115" width="274" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Times" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ypF-2b-VFs">
+                                <rect key="frame" x="59" y="153" width="274" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Q3U-Qu-f9A">
+                                <rect key="frame" x="59" y="204" width="51" height="31"/>
+                                <animations/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Corporate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYW-cC-NHh">
+                                <rect key="frame" x="121" y="209" width="193" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MnH-Xi-ikn">
+                                <rect key="frame" x="59" y="243" width="51" height="31"/>
+                                <animations/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Allows Random People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqQ-7k-gmI">
+                                <rect key="frame" x="121" y="248" width="193" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Classes Detail" id="kqn-Z0-foQ">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="8AN-Yk-FlI">
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="0Pv-vb-dVY" id="GFe-g2-d4F"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" id="TAO-Ok-DNi">
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="0Pv-vb-dVY" id="ir8-b4-QDC"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="allowRandomSwitch" destination="MnH-Xi-ikn" id="6pW-0U-FU8"/>
+                        <outlet property="classNameTextField" destination="MY2-eI-aKY" id="OM6-5V-cJL"/>
+                        <outlet property="classTimeTextField" destination="ypF-2b-VFs" id="k9Y-Ek-GRC"/>
+                        <outlet property="corporateSwitch" destination="Q3U-Qu-f9A" id="ghN-I9-yW1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTi-IK-Er5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1748" y="923"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NUy-wQ-1h6">
@@ -236,5 +328,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="qM4-NW-vbV"/>
+        <segue reference="hRA-jv-4MA"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,6 +28,7 @@ class ClassesViewController: UIViewController, UITableViewDataSource, UITableVie
             indexPath) as UITableViewCell
         let currentClass = dataManager.classesDataArray[indexPath.row]
         classCell.textLabel!.text = "\(currentClass["groupName"] as! String!)"
+        classCell.detailTextLabel!.text = "\(currentClass["times"] as! String!)"
         
         return classCell
     }
@@ -38,6 +39,35 @@ class ClassesViewController: UIViewController, UITableViewDataSource, UITableVie
             memberToDelete.deleteInBackground()
             dataManager.fetchClassesFromParse()
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueClassEdit" {
+            let destController = segue.destinationViewController as! ClassesDetailViewController
+            let indexPath = classesTableView.indexPathForSelectedRow!
+            let selectedClass = dataManager.classesDataArray[indexPath.row]
+            destController.selectedClass = selectedClass
+            classesTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+    }
+    
+    
+    func newClassesDataReceived() {
+        classesTableView.reloadData()
+    }
+    
+    
+    //MARK: - Life Cycle Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dataManager.fetchClassesFromParse()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newClassesDataReceived", name: "receivedClassesDataFromServer", object: nil)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        dataManager.fetchClassesFromParse()
     }
     
 }

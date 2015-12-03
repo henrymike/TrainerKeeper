@@ -15,6 +15,7 @@
 		55B549FB1C0C93C3002F504B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B549F91C0C93C3002F504B /* LaunchScreen.storyboard */; };
 		55B54A031C0CA2D5002F504B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B54A021C0CA2D5002F504B /* DataManager.swift */; };
 		55B54A051C0CDBEC002F504B /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B54A041C0CDBEC002F504B /* MemberDetailViewController.swift */; };
+		55C3C9041C10889D00612C39 /* ClassesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9031C10889D00612C39 /* ClassesDetailViewController.swift */; };
 		AC14D363B0E04C8E5D1E3D7D /* Pods_TrainerKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7724565019DC209E47504AA4 /* Pods_TrainerKeeper.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		55B549FC1C0C93C3002F504B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55B54A021C0CA2D5002F504B /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		55B54A041C0CDBEC002F504B /* MemberDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
+		55C3C9031C10889D00612C39 /* ClassesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesDetailViewController.swift; sourceTree = "<group>"; };
 		7724565019DC209E47504AA4 /* Pods_TrainerKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainerKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B765AFCCCC21929B10F613BB /* Pods-TrainerKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainerKeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainerKeeper/Pods-TrainerKeeper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,8 +71,9 @@
 			children = (
 				55B549F01C0C93C3002F504B /* AppDelegate.swift */,
 				55B549F21C0C93C3002F504B /* ViewController.swift */,
-				553F3EA61C0F9D6000BC3375 /* ClassesViewController.swift */,
 				55B54A041C0CDBEC002F504B /* MemberDetailViewController.swift */,
+				553F3EA61C0F9D6000BC3375 /* ClassesViewController.swift */,
+				55C3C9031C10889D00612C39 /* ClassesDetailViewController.swift */,
 				55B54A021C0CA2D5002F504B /* DataManager.swift */,
 				55B549F41C0C93C3002F504B /* Main.storyboard */,
 				55B549F71C0C93C3002F504B /* Assets.xcassets */,
@@ -223,6 +226,7 @@
 				55B54A031C0CA2D5002F504B /* DataManager.swift in Sources */,
 				553F3EA71C0F9D6000BC3375 /* ClassesViewController.swift in Sources */,
 				55B54A051C0CDBEC002F504B /* MemberDetailViewController.swift in Sources */,
+				55C3C9041C10889D00612C39 /* ClassesDetailViewController.swift in Sources */,
 				55B549F11C0C93C3002F504B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
