@@ -20,6 +20,9 @@
 		55C3C9081C10A06400612C39 /* ExercisesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9071C10A06400612C39 /* ExercisesDetailViewController.swift */; };
 		55C3C90A1C10E45000612C39 /* WorkoutBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9091C10E45000612C39 /* WorkoutBuilderViewController.swift */; };
 		55C3C90D1C1200A200612C39 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C90C1C1200A200612C39 /* MembersViewController.swift */; };
+		55C3C90F1C1219F700612C39 /* RecordMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C90E1C1219F700612C39 /* RecordMembersViewController.swift */; };
+		55C3C9111C121BAD00612C39 /* RecordSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9101C121BAD00612C39 /* RecordSelectViewController.swift */; };
+		55C3C9131C121CF700612C39 /* RecordDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9121C121CF700612C39 /* RecordDataViewController.swift */; };
 		AC14D363B0E04C8E5D1E3D7D /* Pods_TrainerKeeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7724565019DC209E47504AA4 /* Pods_TrainerKeeper.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,9 @@
 		55C3C9071C10A06400612C39 /* ExercisesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesDetailViewController.swift; sourceTree = "<group>"; };
 		55C3C9091C10E45000612C39 /* WorkoutBuilderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutBuilderViewController.swift; sourceTree = "<group>"; };
 		55C3C90C1C1200A200612C39 /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		55C3C90E1C1219F700612C39 /* RecordMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordMembersViewController.swift; sourceTree = "<group>"; };
+		55C3C9101C121BAD00612C39 /* RecordSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordSelectViewController.swift; sourceTree = "<group>"; };
+		55C3C9121C121CF700612C39 /* RecordDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordDataViewController.swift; sourceTree = "<group>"; };
 		7724565019DC209E47504AA4 /* Pods_TrainerKeeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrainerKeeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B765AFCCCC21929B10F613BB /* Pods-TrainerKeeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainerKeeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrainerKeeper/Pods-TrainerKeeper.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +92,9 @@
 				55C3C9051C10A05300612C39 /* ExercisesViewController.swift */,
 				55C3C9071C10A06400612C39 /* ExercisesDetailViewController.swift */,
 				55C3C9091C10E45000612C39 /* WorkoutBuilderViewController.swift */,
+				55C3C90E1C1219F700612C39 /* RecordMembersViewController.swift */,
+				55C3C9101C121BAD00612C39 /* RecordSelectViewController.swift */,
+				55C3C9121C121CF700612C39 /* RecordDataViewController.swift */,
 				55C3C90B1C10E56A00612C39 /* Managers */,
 				55B549F41C0C93C3002F504B /* Main.storyboard */,
 				55B549F71C0C93C3002F504B /* Assets.xcassets */,
@@ -245,12 +254,15 @@
 				55B549F31C0C93C3002F504B /* ViewController.swift in Sources */,
 				55B54A031C0CA2D5002F504B /* DataManager.swift in Sources */,
 				55C3C90D1C1200A200612C39 /* MembersViewController.swift in Sources */,
+				55C3C90F1C1219F700612C39 /* RecordMembersViewController.swift in Sources */,
 				55C3C90A1C10E45000612C39 /* WorkoutBuilderViewController.swift in Sources */,
 				55C3C9061C10A05300612C39 /* ExercisesViewController.swift in Sources */,
 				55C3C9081C10A06400612C39 /* ExercisesDetailViewController.swift in Sources */,
 				553F3EA71C0F9D6000BC3375 /* ClassesViewController.swift in Sources */,
 				55B54A051C0CDBEC002F504B /* MembersDetailViewController.swift in Sources */,
 				55C3C9041C10889D00612C39 /* ClassesDetailViewController.swift in Sources */,
+				55C3C9131C121CF700612C39 /* RecordDataViewController.swift in Sources */,
+				55C3C9111C121BAD00612C39 /* RecordSelectViewController.swift in Sources */,
 				55B549F11C0C93C3002F504B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
