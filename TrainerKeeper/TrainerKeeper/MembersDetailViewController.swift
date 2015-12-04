@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class MembersDetailViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
