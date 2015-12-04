@@ -14,6 +14,7 @@ class RecordSelectViewController: UIViewController, UITableViewDataSource, UITab
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
     var selectedMember :PFObject?
+    var recordDataArray :[PFObject?] = []
     @IBOutlet weak var recordSelectTableView  :UITableView!
     
     
@@ -40,6 +41,34 @@ class RecordSelectViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedCell = recordSelectTableView.cellForRowAtIndexPath(indexPath)
         selectedCell?.accessoryType = UITableViewCellAccessoryType.None
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueMemberRecord" {
+            if let indexPaths = recordSelectTableView.indexPathsForSelectedRows {
+                for indexPath in indexPaths {
+                    let selectedExercise = dataManager.exercisesDataArray[indexPath.row]
+                    print("Selected Exercises: \(selectedExercise)")
+                    recordDataArray.append(selectedExercise)
+                    print("Record Data Array: \(recordDataArray)")
+                }
+            }
+            let destController = segue.destinationViewController as! RecordDataViewController
+            destController.recordDataArray = recordDataArray
+        }
+    }
+    
+    
+    //MARK: - Interactivity Methods
+    
+    @IBAction func nextButtonPressed(sender: UIBarButtonItem) {
+//        if let indexPaths = recordSelectTableView.indexPathsForSelectedRows {
+//            for indexPath in indexPaths {
+//                let selectedExercise = dataManager.exercisesDataArray[indexPath.row]
+//                print("Selected Exercises: \(selectedExercise)")
+//            }
+//        }
+        
     }
     
     

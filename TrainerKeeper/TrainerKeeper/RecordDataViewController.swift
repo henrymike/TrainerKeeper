@@ -10,6 +10,11 @@ import UIKit
 import Parse
 
 class RecordDataViewController: UIViewController {
+    
+    
+    //MARK: - Properties
+    var dataManager = DataManager.sharedInstance
+    var recordDataArray :[PFObject?] = []
 
     
     

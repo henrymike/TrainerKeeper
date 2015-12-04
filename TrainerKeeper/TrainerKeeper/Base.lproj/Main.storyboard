@@ -178,6 +178,7 @@
                     <navigationItem key="navigationItem" title="Select Exercises" id="9gC-I2-mu5">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="3Y5-X7-AuR">
                             <connections>
+                                <action selector="nextButtonPressed:" destination="ioC-Ts-cEa" id="MQm-8b-rOb"/>
                                 <segue destination="Hlh-WD-L1b" kind="show" identifier="segueMemberRecord" id="D6W-6R-NRy"/>
                             </connections>
                         </barButtonItem>
