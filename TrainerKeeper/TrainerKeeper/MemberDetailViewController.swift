@@ -61,7 +61,7 @@ class MemberDetailViewController: UIViewController, UIPickerViewDataSource, UIPi
     }
     
     
-    //MARK: - Picker View Methods
+    //MARK: - Class Picker View Methods
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1

@@ -61,6 +61,7 @@ class ClassesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataManager.fetchWorkoutsFromParse()
         dataManager.fetchClassesFromParse()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newClassesDataReceived", name: "receivedClassesDataFromServer", object: nil)
     }

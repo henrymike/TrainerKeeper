@@ -16,6 +16,7 @@ class DataManager: NSObject {
     var membersDataArray = [PFObject]()
     var classesDataArray = [PFObject]()
     var exercisesDataArray = [PFObject]()
+    var workoutsDataArray = [PFObject]()
     
     
     //MARK: - Fetch Methods
@@ -72,6 +73,24 @@ class DataManager: NSObject {
                 }
             } else {
                 print("No Exercises Data")
+            }
+        }
+        
+    }
+    
+    func fetchWorkoutsFromParse() {
+        let fetchWorkouts = PFQuery(className: "WorkoutMaster")
+        fetchWorkouts.orderByAscending("workoutName")
+        fetchWorkouts.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error == nil {
+                print("Got Workouts Data")
+                self.workoutsDataArray = objects!
+                //                print("Workouts Array: \(workoutsDataArray)")
+//                dispatch_async(dispatch_get_main_queue()) {
+//                    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "receivedWorkoutsDataFromServer", object: nil))
+//                }
+            } else {
+                print("No Workouts Data")
             }
         }
         

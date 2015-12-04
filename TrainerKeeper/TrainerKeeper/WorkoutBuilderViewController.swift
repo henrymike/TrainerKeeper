@@ -34,16 +34,12 @@ class WorkoutBuilderViewController: UIViewController, UITableViewDataSource, UIT
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedCell = workoutBuilderTableView.cellForRowAtIndexPath(indexPath)
-        if selectedCell!.selected == true {
-            selectedCell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-        }
+        selectedCell?.accessoryType = UITableViewCellAccessoryType.Checkmark
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedCell = workoutBuilderTableView.cellForRowAtIndexPath(indexPath)
-        if selectedCell!.selected == false {
-            selectedCell?.accessoryType = UITableViewCellAccessoryType.None
-        }
+        selectedCell?.accessoryType = UITableViewCellAccessoryType.None
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -72,7 +68,6 @@ class WorkoutBuilderViewController: UIViewController, UITableViewDataSource, UIT
             }
         }
 
-    
     }
 
 
