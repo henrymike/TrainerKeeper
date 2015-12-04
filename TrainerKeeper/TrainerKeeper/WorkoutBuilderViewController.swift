@@ -32,6 +32,20 @@ class WorkoutBuilderViewController: UIViewController, UITableViewDataSource, UIT
         return classCell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = workoutBuilderTableView.cellForRowAtIndexPath(indexPath)
+        if selectedCell!.selected == true {
+            selectedCell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+        }
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = workoutBuilderTableView.cellForRowAtIndexPath(indexPath)
+        if selectedCell!.selected == false {
+            selectedCell?.accessoryType = UITableViewCellAccessoryType.None
+        }
+    }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let memberToDelete = dataManager.exercisesDataArray[indexPath.row]
@@ -44,9 +58,23 @@ class WorkoutBuilderViewController: UIViewController, UITableViewDataSource, UIT
     //MARK: - Interactivity Methods
     
     @IBAction func saveButtonPressed(sender: UIBarButtonItem) {
-        
-    }
+        if let indexPaths = workoutBuilderTableView.indexPathsForSelectedRows {
+//            print(indexPaths)
+            let newWorkout = PFObject(className: "WorkoutMaster")
+            newWorkout["workoutName"] = workoutNameTextField.text
+            newWorkout.saveInBackground()
+            for indexPath in indexPaths {
+                let selectedExercise = dataManager.exercisesDataArray[indexPath.row]
+                let newWorkoutDetail = PFObject(className: "WorkoutDetail")
+                newWorkoutDetail["exerciseName"] = selectedExercise
+                newWorkoutDetail["parent"] = newWorkout
+                newWorkoutDetail.saveInBackground()
+            }
+        }
+
     
+    }
+
 
     func newExercisesDataReceived() {
         workoutBuilderTableView.reloadData()
