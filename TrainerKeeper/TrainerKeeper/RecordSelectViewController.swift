@@ -14,6 +14,7 @@ class RecordSelectViewController: UIViewController, UITableViewDataSource, UITab
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
     var selectedMember :PFObject?
+//    var recordMemberArray :[PFObject?] = []
     var recordDataArray :[PFObject?] = []
     @IBOutlet weak var recordSelectTableView  :UITableView!
     
@@ -55,6 +56,7 @@ class RecordSelectViewController: UIViewController, UITableViewDataSource, UITab
             }
             let destController = segue.destinationViewController as! RecordDataViewController
             destController.recordDataArray = recordDataArray
+            destController.selectedMember = selectedMember
         }
     }
     
