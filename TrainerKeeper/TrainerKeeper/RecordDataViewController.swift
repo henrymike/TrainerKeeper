@@ -14,8 +14,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
-    var selectedMember :PFObject?
-//    var recordMemberArray :[PFObject?] = []
+    var recordMemberArray :[PFObject?] = []
     var recordDataArray :[PFObject?] = []
     @IBOutlet weak var recordTableView :UITableView!
 
@@ -28,26 +27,18 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recordDataArray.count
+        return recordMemberArray.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        let record2DataArray = ([recordDataArray] as! NSArray)
-//        return (record2DataArray[section] as! String)
-        
         return (recordDataArray[section]!["name"] as! String)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let exerciseCell = tableView.dequeueReusableCellWithIdentifier("recordExcerciseCell", forIndexPath:
-//            indexPath) as! RecordTableViewCell
-//        let recordExercise = recordDataArray[0]
-//        exerciseCell.excerciseLabel.text = "\(recordExercise!["name"] as! String)"
-        
         let memberCell = tableView.dequeueReusableCellWithIdentifier("recordMemberCell", forIndexPath: indexPath) as! RecordTableViewCell
-        let recordMember = selectedMember
+        let recordMember = recordMemberArray[indexPath.row]
         memberCell.memberLabel.text = "\(recordMember!["firstName"] as! String!) \(recordMember!["lastName"] as! String!)"
-
+        
         return memberCell
     }
     
@@ -59,7 +50,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         
         print("Segue Array: \(recordDataArray)")
-        print("Segue Member: \(selectedMember)")
+        print("Segue Member: \(recordMemberArray)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +58,4 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
 
     }
     
-
-
 }

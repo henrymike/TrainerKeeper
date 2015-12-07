@@ -13,6 +13,7 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
     
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
+    var recordMemberArray :[PFObject?] = []
     @IBOutlet weak var membersTableView :UITableView!
     
     
@@ -46,7 +47,8 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
             let destController = segue.destinationViewController as! RecordSelectViewController
             let indexPath = membersTableView.indexPathForSelectedRow!
             let selectedMember = dataManager.membersDataArray[indexPath.row]
-            destController.selectedMember = selectedMember
+            recordMemberArray.append(selectedMember)
+            destController.recordMemberArray = recordMemberArray
             membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }

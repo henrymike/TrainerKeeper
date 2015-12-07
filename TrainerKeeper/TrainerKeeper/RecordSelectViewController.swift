@@ -13,8 +13,7 @@ class RecordSelectViewController: UIViewController, UITableViewDataSource, UITab
     
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
-    var selectedMember :PFObject?
-//    var recordMemberArray :[PFObject?] = []
+    var recordMemberArray :[PFObject?] = []
     var recordDataArray :[PFObject?] = []
     @IBOutlet weak var recordSelectTableView  :UITableView!
     
@@ -56,7 +55,7 @@ class RecordSelectViewController: UIViewController, UITableViewDataSource, UITab
             }
             let destController = segue.destinationViewController as! RecordDataViewController
             destController.recordDataArray = recordDataArray
-            destController.selectedMember = selectedMember
+            destController.recordMemberArray = recordMemberArray
         }
     }
     
@@ -64,13 +63,7 @@ class RecordSelectViewController: UIViewController, UITableViewDataSource, UITab
     //MARK: - Interactivity Methods
     
     @IBAction func nextButtonPressed(sender: UIBarButtonItem) {
-//        if let indexPaths = recordSelectTableView.indexPathsForSelectedRows {
-//            for indexPath in indexPaths {
-//                let selectedExercise = dataManager.exercisesDataArray[indexPath.row]
-//                print("Selected Exercises: \(selectedExercise)")
-//            }
-//        }
-        
+        //TODO: Disable Next button until selection is made
     }
     
     
@@ -78,6 +71,10 @@ class RecordSelectViewController: UIViewController, UITableViewDataSource, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        recordDataArray.removeAll()
     }
 
     override func didReceiveMemoryWarning() {
