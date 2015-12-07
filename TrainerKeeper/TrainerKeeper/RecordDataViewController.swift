@@ -43,6 +43,22 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
+    //MARK: - Save Methods
+    
+    @IBAction func saveButtonPressed(sender: UIBarButtonItem) {
+        print("Save button pressed")
+//        let value : RecordTableViewCell!
+//        let value2 = value.memberRecordTextField.text
+//        for value2 in recordTableView {
+//            print("Something")
+//        }
+//        for value.memberRecordTextField.text
+//        for memberRecordTextField.text in RecordTableViewCell {
+//        }
+//        let editedField = value2
+//        let indexPaths = recordTableView.indexPathForCell(editedField)
+    }
+    
     
     //MARK: - Life Cycle Methods
     

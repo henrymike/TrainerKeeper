@@ -16,8 +16,6 @@ class ExercisesViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var exercisesTableView :UITableView!
     
     
-    
-    
     //MARK: Table View Methods
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataManager.exercisesDataArray.count

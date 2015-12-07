@@ -134,45 +134,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BPi-Fd-EPO">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sWI-Dj-bQU">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordSelectCell" textLabel="VHW-sG-mhe" style="IBUITableViewCellStyleDefault" id="7on-CQ-DQX">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7on-CQ-DQX" id="cLV-Ud-7Lv">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ipx-dg-pma">
+                                    <size key="itemSize" width="143" height="155"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="exerciseCell" id="qkD-TC-Wxo" customClass="ExercisesCollectionViewCell" customModule="TrainerKeeper" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="64" width="135" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VHW-sG-mhe">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bXJ-2K-vev">
+                                                    <rect key="frame" x="7" y="8" width="120" height="100"/>
                                                     <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="9Kd-zW-kCH"/>
+                                                        <constraint firstAttribute="height" constant="100" id="v6x-o2-jp4"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-qq-g1T">
+                                                    <rect key="frame" x="7" y="113" width="120" height="21"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="EOG-Tt-EAF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
-                                        </tableViewCellContentView>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
                                         <animations/>
-                                    </tableViewCell>
-                                </prototypes>
+                                        <constraints>
+                                            <constraint firstAttribute="topMargin" secondItem="bXJ-2K-vev" secondAttribute="top" id="83e-5X-Om3"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="eWJ-qq-g1T" secondAttribute="trailing" id="Pip-QI-ZLW"/>
+                                            <constraint firstItem="bXJ-2K-vev" firstAttribute="leading" secondItem="qkD-TC-Wxo" secondAttribute="leadingMargin" constant="-1" id="RTE-9K-NcQ"/>
+                                            <constraint firstItem="eWJ-qq-g1T" firstAttribute="leading" secondItem="qkD-TC-Wxo" secondAttribute="leadingMargin" constant="-1" id="Vah-Ak-yBn"/>
+                                            <constraint firstItem="eWJ-qq-g1T" firstAttribute="top" secondItem="bXJ-2K-vev" secondAttribute="bottom" constant="5" id="drZ-Gy-zcZ"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="bXJ-2K-vev" secondAttribute="trailing" id="lU2-nn-FKy"/>
+                                        </constraints>
+                                        <size key="customSize" width="135" height="140"/>
+                                        <connections>
+                                            <outlet property="exerciseImageView" destination="bXJ-2K-vev" id="AtG-HQ-xmW"/>
+                                            <outlet property="exerciseLabel" destination="eWJ-qq-g1T" id="QN2-wT-kT2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="ioC-Ts-cEa" id="LUw-0L-ong"/>
-                                    <outlet property="delegate" destination="ioC-Ts-cEa" id="pTt-cW-gud"/>
+                                    <outlet property="dataSource" destination="ioC-Ts-cEa" id="Vol-m8-OWN"/>
+                                    <outlet property="delegate" destination="ioC-Ts-cEa" id="IXU-N9-OLZ"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="BPi-Fd-EPO" firstAttribute="leading" secondItem="kUN-9D-rUA" secondAttribute="leadingMargin" constant="-20" id="Dt7-6X-cgq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BPi-Fd-EPO" secondAttribute="trailing" constant="-20" id="TuS-Rp-QpJ"/>
-                            <constraint firstItem="zlZ-sC-2hM" firstAttribute="top" secondItem="BPi-Fd-EPO" secondAttribute="bottom" id="bRu-Vk-i1K"/>
-                            <constraint firstItem="BPi-Fd-EPO" firstAttribute="top" secondItem="EKC-DG-lDo" secondAttribute="bottom" constant="-64" id="zc5-2z-QQm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sWI-Dj-bQU" secondAttribute="trailing" constant="-20" id="1S6-fO-9tY"/>
+                            <constraint firstItem="zlZ-sC-2hM" firstAttribute="top" secondItem="sWI-Dj-bQU" secondAttribute="bottom" id="22n-wV-Wlr"/>
+                            <constraint firstItem="sWI-Dj-bQU" firstAttribute="top" secondItem="EKC-DG-lDo" secondAttribute="bottom" constant="-64" id="ReQ-qw-URj"/>
+                            <constraint firstItem="sWI-Dj-bQU" firstAttribute="leading" secondItem="kUN-9D-rUA" secondAttribute="leadingMargin" constant="-20" id="cM1-Ie-jqe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Exercises" id="9gC-I2-mu5">
@@ -184,7 +214,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="recordSelectTableView" destination="BPi-Fd-EPO" id="5zG-Fj-wgp"/>
+                        <outlet property="recordSelectCollectionView" destination="sWI-Dj-bQU" id="Hcq-gq-12q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1z-ie-0hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -291,7 +321,13 @@
                             <constraint firstItem="YXM-Cs-JME" firstAttribute="top" secondItem="pNg-ok-J23" secondAttribute="bottom" id="X2h-Yq-beZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Record" id="Wms-Az-qCL"/>
+                    <navigationItem key="navigationItem" title="Record" id="Wms-Az-qCL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="NxZ-pX-Zc7">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="Hlh-WD-L1b" id="I2K-Zd-pks"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="recordTableView" destination="pNg-ok-J23" id="Sut-qI-PYz"/>
                     </connections>
