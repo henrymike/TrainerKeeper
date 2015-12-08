@@ -16,6 +16,8 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     var dataManager = DataManager.sharedInstance
     var recordMemberArray :[PFObject?] = []
     var recordDataArray :[PFObject?] = []
+    var workoutDetailArray = [WorkoutDetail]()
+    var member :PFObject?
     @IBOutlet weak var recordTableView :UITableView!
 
     
@@ -42,8 +44,38 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         return memberCell
     }
     
-    
     //MARK: - Save Methods
+    
+    func createWorkoutDetailArray() {
+        for exercise in recordDataArray {
+            for member in recordMemberArray {
+                let newWorkout = WorkoutDetail()
+                newWorkout.member = member
+                newWorkout.memberName = (member!["firstName"] as! String) + (member!["lastName"] as! String)
+                newWorkout.exercise = exercise
+                newWorkout.exerciseName = exercise!["name"] as! String
+                workoutDetailArray.append(newWorkout)
+            }
+        }
+    }
+    
+    func filterWorkoutDetail(memberName: String, exerciseName: String) -> WorkoutDetail {
+        // ASSUMES NO DUPLICATE USERS OR EXERCISES
+        let tempArray = workoutDetailArray.filter({$0.memberName == memberName && $0.exerciseName == exerciseName})
+        return tempArray[0]
+    }
+    
+    @IBAction func dataValueChanged(sender: UITextField) {
+        let point = sender.convertPoint(CGPointZero, toView: recordTableView)
+        let indexPath = recordTableView.indexPathForRowAtPoint(point)!
+        let cell = recordTableView.cellForRowAtIndexPath(indexPath) as! RecordTableViewCell
+        let member = recordMemberArray[indexPath.row]
+        let currentMemberName = (member!["firstName"] as! String) + (member!["lastName"] as! String)
+        let currentExerciseName = recordDataArray[indexPath.section]!["name"] as! String
+        let currentWorkout = filterWorkoutDetail(currentMemberName, exerciseName: currentExerciseName)
+        currentWorkout.exerciseReps = Int(cell.memberRecordTextField.text!)
+        print("member:\(currentWorkout.memberName) exercise:\(currentWorkout.exerciseName) reps:\(currentWorkout.exerciseReps)")
+    }
     
     @IBAction func saveButtonPressed(sender: UIBarButtonItem) {
         print("Save button pressed")
@@ -64,6 +96,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createWorkoutDetailArray()
         
         print("Segue Array: \(recordDataArray)")
         print("Segue Member: \(recordMemberArray)")

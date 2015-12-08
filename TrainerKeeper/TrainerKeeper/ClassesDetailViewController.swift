@@ -20,7 +20,6 @@ class ClassesDetailViewController: UIViewController {
     @IBOutlet weak var classTimeTextField   :UITextField!
     @IBOutlet weak var corporateSwitch      :UISwitch!
     @IBOutlet weak var allowRandomSwitch    :UISwitch!
-    @IBOutlet weak var workoutPicker        :UIPickerView!
 
     
     //MARK: - Display Methods
@@ -73,28 +72,6 @@ class ClassesDetailViewController: UIViewController {
         selectedClass!.saveInBackground()
         navigationController?.popViewControllerAnimated(true)
     }
-    
-    
-    //MARK: - Workout Picker View Methods
-    
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataManager.workoutsDataArray.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return (dataManager.workoutsDataArray[row].objectForKey("workoutName") as! String)
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selection = workoutPicker.selectedRowInComponent(0)
-        selectedWorkout = dataManager.workoutsDataArray[selection]
-        print("Workout: \(selectedWorkout!)")
-    }
-    
     
     
     //MARK: - Life Cycle Methods

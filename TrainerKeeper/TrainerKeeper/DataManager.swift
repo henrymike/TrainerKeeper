@@ -16,8 +16,7 @@ class DataManager: NSObject {
     var membersDataArray = [PFObject]()
     var classesDataArray = [PFObject]()
     var exercisesDataArray = [PFObject]()
-    var workoutsDataArray = [PFObject]()
-    
+    var workoutDataArray = [PFObject]()
     
     //MARK: - Fetch Methods
     
@@ -60,6 +59,25 @@ class DataManager: NSObject {
         
     }
     
+    func fetchWorkoutDetailFromParse() {
+        let fetchWorkoutDetail = PFQuery(className: "WorkoutDetail")
+        fetchWorkoutDetail.orderByAscending("exercise")
+        fetchWorkoutDetail.orderByAscending("member")
+        fetchWorkoutDetail.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error == nil {
+                print("Got Workout Data")
+                self.workoutDataArray = objects!
+                print("Workout Array: \(self.workoutDataArray)")
+                dispatch_async(dispatch_get_main_queue()) {
+                    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "receivedWorkoutDataFromServer", object: nil))
+                }
+            } else {
+                print("No Workout Data")
+            }
+        }
+        
+    }
+    
     func fetchExercisesFromParse() {
         let fetchExercises = PFQuery(className: "Exercises")
         fetchExercises.orderByAscending("name")
@@ -77,24 +95,6 @@ class DataManager: NSObject {
         }
         
     }
-    
-    func fetchWorkoutsFromParse() {
-        let fetchWorkouts = PFQuery(className: "WorkoutMaster")
-        fetchWorkouts.orderByAscending("workoutName")
-        fetchWorkouts.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if error == nil {
-                print("Got Workouts Data")
-                self.workoutsDataArray = objects!
-                //                print("Workouts Array: \(workoutsDataArray)")
-//                dispatch_async(dispatch_get_main_queue()) {
-//                    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "receivedWorkoutsDataFromServer", object: nil))
-//                }
-            } else {
-                print("No Workouts Data")
-            }
-        }
         
-    }
-    
     
 }

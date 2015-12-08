@@ -83,10 +83,7 @@ class RecordSelectViewController: UIViewController, UICollectionViewDataSource, 
         if segue.identifier == "segueMemberRecord" {
             if let indexPaths = recordSelectCollectionView.indexPathsForSelectedItems() {
                 for indexPath in indexPaths {
-                    let selectedExercise = dataManager.exercisesDataArray[indexPath.row]
-                    print("Selected Exercises: \(selectedExercise)")
-                    recordDataArray.append(selectedExercise)
-                    print("Record Data Array: \(recordDataArray)")
+                    recordDataArray.append(dataManager.exercisesDataArray[indexPath.row])
                 }
             }
             let destController = segue.destinationViewController as! RecordDataViewController

@@ -282,6 +282,10 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="dataValueChanged:" destination="Hlh-WD-L1b" eventType="editingChanged" id="9Mo-f5-IuN"/>
+                                                        <outlet property="delegate" destination="Hlh-WD-L1b" id="dm5-qR-Xjm"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <animations/>
@@ -745,14 +749,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kSp-v4-cUc">
-                                <rect key="frame" x="0.0" y="300" width="600" height="216"/>
-                                <animations/>
-                                <connections>
-                                    <outlet property="dataSource" destination="0Pv-vb-dVY" id="9HV-Zc-Fgf"/>
-                                    <outlet property="delegate" destination="0Pv-vb-dVY" id="40S-gc-9ag"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -776,7 +772,6 @@
                         <outlet property="classNameTextField" destination="MY2-eI-aKY" id="OM6-5V-cJL"/>
                         <outlet property="classTimeTextField" destination="ypF-2b-VFs" id="k9Y-Ek-GRC"/>
                         <outlet property="corporateSwitch" destination="Q3U-Qu-f9A" id="ghN-I9-yW1"/>
-                        <outlet property="workoutPicker" destination="kSp-v4-cUc" id="eOj-NG-EVh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTi-IK-Er5" userLabel="First Responder" sceneMemberID="firstResponder"/>
