@@ -11,11 +11,12 @@ import Parse
 
 class WorkoutDetail: NSObject {
     
-    var exercise     :PFObject!
-    var exerciseName :String!
-    var member       :PFObject!
-    var memberName   :String!
-    var exerciseReps :Int!
+    var exercise        :PFObject!
+    var exerciseName    :String!
+    var member          :PFObject!
+    var memberFirstName :String!
+    var memberLastName  :String!
+    var exerciseReps    :Int!
     var exerciseMeasure :Double!
     var exerciseSeconds :Double!
 
