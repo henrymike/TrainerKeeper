@@ -796,13 +796,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RtL-sT-ngr">
+                                <rect key="frame" x="0.0" y="225" width="600" height="216"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="dataSource" destination="wc8-L8-aU8" id="6Je-cZ-keO"/>
+                                    <outlet property="delegate" destination="wc8-L8-aU8" id="0uy-Wj-5lH"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Exercise Detail" id="h35-xd-Szx">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="VJC-qd-3CD">
+                            <barButtonItem enabled="NO" systemItem="save" id="VJC-qd-3CD">
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="wc8-L8-aU8" id="P8e-zK-uXv"/>
                                 </connections>
@@ -816,6 +824,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="exerciseNameTextField" destination="3Nx-Yk-SJc" id="5Bl-Rr-ftl"/>
+                        <outlet property="exerciseTypePickerView" destination="RtL-sT-ngr" id="RPd-cD-NxR"/>
+                        <outlet property="saveBarButtonItem" destination="VJC-qd-3CD" id="bjZ-xC-OTi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rf-Pg-aIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
