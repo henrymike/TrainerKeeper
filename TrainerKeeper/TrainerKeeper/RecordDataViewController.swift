@@ -81,12 +81,11 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func saveButtonPressed(sender: UIBarButtonItem) {
         print("Save button pressed")
-        for member in workoutDetailArray {
+        for detail in workoutDetailArray {
             let recordMember = PFObject(className: "WorkoutDetail")
-            recordMember["firstName"] = member.memberFirstName
-            recordMember["lastName"] = member.memberLastName
-            recordMember["exerciseName"] = member.exerciseName
-            recordMember["exerciseReps"] = member.exerciseReps
+            recordMember["member"] = detail.member
+            recordMember["exercise"] = detail.exercise
+            recordMember["exerciseReps"] = detail.exerciseReps
             print("Record Member: \(recordMember)")
             recordMember.saveInBackground()
         }
