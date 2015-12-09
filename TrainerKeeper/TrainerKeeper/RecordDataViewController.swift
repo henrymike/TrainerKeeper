@@ -75,8 +75,22 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         let currentMemberLastName = (member!["lastName"] as! String)
         let currentExerciseName = recordDataArray[indexPath.section]!["name"] as! String
         let currentWorkout = filterWorkoutDetail(currentMemberFirstName, memberLastName: currentMemberLastName, exerciseName: currentExerciseName)
-        currentWorkout.exerciseReps = Int(cell.memberRecordTextField.text!)
-        print("memberFN:\(currentWorkout.memberFirstName) memberLN:\(currentWorkout.memberFirstName) exercise:\(currentWorkout.exerciseName) reps:\(currentWorkout.exerciseReps)")
+        
+        // TODO: Not able to get correct values for Measure and Seconds; returns nil
+        let currentExerciseType = recordDataArray[indexPath.section]!["type"] as! String
+        print("Current Exercise Type: \(currentExerciseType)")
+        switch currentExerciseType {
+        case "Reps":
+            currentWorkout.exerciseReps = Int(cell.memberRecordTextField.text!)
+        case "Measure":
+            currentWorkout.exerciseMeasure = Double(cell.memberRecordTextField.text!)
+        case "Time":
+            currentWorkout.exerciseSeconds = Double(cell.memberRecordTextField.text!)
+        default:
+            print("Case Switch Error")
+        }
+        
+        print("memberFN:\(currentWorkout.memberFirstName) memberLN:\(currentWorkout.memberLastName) exercise:\(currentWorkout.exerciseName) reps:\(currentWorkout.exerciseReps)")
     }
     
     @IBAction func saveButtonPressed(sender: UIBarButtonItem) {

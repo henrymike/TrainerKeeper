@@ -20,8 +20,15 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
     
     //MARK: - Table View Methods
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return dataManager.classesDataArray.count
+    }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataManager.membersDataArray.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return (dataManager.classesDataArray[section]["groupName"] as! String)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -34,6 +41,17 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
         return memberCell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = membersTableView.cellForRowAtIndexPath(indexPath)
+        selectedCell?.accessoryType = UITableViewCellAccessoryType.Checkmark
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = membersTableView.cellForRowAtIndexPath(indexPath)
+        selectedCell?.accessoryType = UITableViewCellAccessoryType.None
+    }
+    
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             let memberToDelete = dataManager.membersDataArray[indexPath.row]
@@ -45,14 +63,23 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueMemberSelect" {
             let destController = segue.destinationViewController as! RecordSelectViewController
-            let indexPath = membersTableView.indexPathForSelectedRow!
-            let selectedMember = dataManager.membersDataArray[indexPath.row]
-            recordMemberArray.append(selectedMember)
-            destController.recordMemberArray = recordMemberArray
-            membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
+            
+            if let indexPaths = membersTableView.indexPathsForSelectedRows {
+                for indexPath in indexPaths {
+                    let selectedMember = dataManager.membersDataArray[indexPath.row]
+                    recordMemberArray.append(selectedMember)
+                }
+                destController.recordMemberArray = recordMemberArray
+            }
         }
     }
     
+//    func filterMemberByClass(category: String) -> WorkoutDetail {
+//        let className = (dataManager.membersDataArray["parent"]["groupName"] as! String)
+//        let filteredMembers = dataManager.membersDataArray.filter({$0. == category
+//        })
+//        return filteredMembers
+//    }
 
     
     
@@ -61,6 +88,10 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.fetchExercisesFromParse()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        recordMemberArray.removeAll()
     }
     
     override func didReceiveMemoryWarning() {
