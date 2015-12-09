@@ -34,7 +34,7 @@ class ExercisesDetailViewController: UIViewController, UIPickerViewDataSource, U
     
     //MARK: - Picker View Methods
     
-    let exerciseTypeArray = ["-- select type --", "Reps", "Measure", "Time"]
+    var exerciseTypeArray = ["Reps", "Measure", "Time"]
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -91,10 +91,12 @@ class ExercisesDetailViewController: UIViewController, UIPickerViewDataSource, U
         if selectedExercise != nil {
             displaySelectedExerciseDetails()
         }
+        exerciseTypeArray.insert("-- select type --", atIndex: 0)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
+//        exerciseTypeArray.insert("-- select type --", atIndex: 0)
         
         // set initial picker value if Type has been assigned to Exercise
         guard let uSelectedExercise = selectedExercise else {

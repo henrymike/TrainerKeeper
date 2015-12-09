@@ -68,25 +68,33 @@ class MembersDetailViewController: UIViewController, UIPickerViewDataSource, UIP
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataManager.classesDataArray.count
+        return appendedClassesDataArray.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return (dataManager.classesDataArray[row].objectForKey("groupName") as! String)
+        return (appendedClassesDataArray[row].objectForKey("groupName") as! String)
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selection = classPicker.selectedRowInComponent(0)
-        selectedClass = dataManager.classesDataArray[selection]
+        selectedClass = (appendedClassesDataArray[selection] as! PFObject)
+        print(selectedClass)
         saveBarButtonItem.enabled = true
     }
     
+    var appendedClassesDataArray = [AnyObject]()
+    func appendHelperToClassesDataArray() {
+        appendedClassesDataArray = dataManager.classesDataArray
+        let helperDict = ["groupName":"-- select class --"]
+        appendedClassesDataArray.insert(helperDict, atIndex: 0)
+    }
     
     
     //MARK: - Life Cycle Methods
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        appendHelperToClassesDataArray()
         if selectedMember != nil {
             displaySelectedMemberProfile()
         }
@@ -104,8 +112,8 @@ class MembersDetailViewController: UIViewController, UIPickerViewDataSource, UIP
         }
         if uSelectedParent["groupName"] != nil {
             let parent = selectedMember!["parent"] as! PFObject
-            let index = dataManager.classesDataArray.indexOf(parent)!
-            classPicker.selectRow(index, inComponent: 0, animated: false)
+            let index = dataManager.classesDataArray.indexOf(parent)
+            classPicker.selectRow((index! + 1), inComponent: 0, animated: false)
             saveBarButtonItem.enabled = true
         }
         

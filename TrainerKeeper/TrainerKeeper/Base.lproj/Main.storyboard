@@ -28,29 +28,22 @@
                                     <segue destination="5Pa-xg-eYY" kind="show" identifier="segueClasses" id="aN1-Jr-nI7"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Exr" id="BZG-UR-qAd">
-                                <connections>
-                                    <segue destination="TzJ-xI-Qk0" kind="show" id="2qB-ds-5GR"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Rec" id="ouD-8h-Fgb">
-                                <connections>
-                                    <segue destination="jPX-dy-QUn" kind="show" id="dRm-SG-NTX"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Wrk" id="ifL-HH-7Zi">
-                                <connections>
-                                    <segue destination="9aV-2S-6jW" kind="show" id="SJ2-So-ysT"/>
-                                </connections>
-                            </barButtonItem>
                             <barButtonItem title="Mem" id="OpA-dF-esm">
                                 <connections>
                                     <segue destination="N83-uk-yMC" kind="show" id="UuS-yE-1yw"/>
                                 </connections>
                             </barButtonItem>
-                        </rightBarButtonItems>
+                            <barButtonItem title="Exr" id="BZG-UR-qAd">
+                                <connections>
+                                    <segue destination="TzJ-xI-Qk0" kind="show" id="2qB-ds-5GR"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Record" id="ouD-8h-Fgb">
+                            <connections>
+                                <segue destination="jPX-dy-QUn" kind="show" id="dRm-SG-NTX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -284,7 +277,7 @@
                                                         <constraint firstAttribute="width" constant="170" id="YNV-mA-Flf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                     <connections>
                                                         <action selector="dataValueChanged:" destination="Hlh-WD-L1b" eventType="editingChanged" id="9Mo-f5-IuN"/>
                                                         <outlet property="delegate" destination="Hlh-WD-L1b" id="dm5-qR-Xjm"/>
@@ -637,13 +630,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H6a-y1-Dwx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H6a-y1-Dwx">
                                 <rect key="frame" x="0.0" y="118" width="600" height="482"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="workoutBuilderCell" textLabel="7JK-cl-DUa" style="IBUITableViewCellStyleDefault" id="E0Z-8g-20E">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E0Z-8g-20E" id="olC-Cj-R4T">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -668,7 +661,7 @@
                                     <outlet property="delegate" destination="9aV-2S-6jW" id="s3F-c1-ahk"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybK-CZ-CZz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybK-CZ-CZz">
                                 <rect key="frame" x="89" y="78" width="422" height="30"/>
                                 <animations/>
                                 <constraints>
