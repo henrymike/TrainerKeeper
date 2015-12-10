@@ -520,36 +520,73 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordExcerciseCell" rowHeight="44" id="0Kc-jv-c04" customClass="RecordTableViewCell" customModule="TrainerKeeper" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordExerciseTimeCell" rowHeight="44" id="0Kc-jv-c04" customClass="RecordTableViewCell" customModule="TrainerKeeper" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Kc-jv-c04" id="ZRM-bs-7uM">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Exercise Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOD-NH-uet">
-                                                    <rect key="frame" x="18" y="8" width="210" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Member Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruh-nI-Kg6">
+                                                    <rect key="frame" x="37" y="11" width="365" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biV-mh-oki">
+                                                    <rect key="frame" x="463" y="11" width="129" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" tag="22" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jug-LA-CCI">
+                                                    <rect key="frame" x="410" y="7" width="45" height="30"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Efp-0O-fQk"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Ls4-Vc-Pk4"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="Xiq-BU-56p"/>
+                                                        <constraint firstAttribute="width" constant="45" id="i6h-Ze-kmb"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Rec"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Ls4-Vc-Pk4"/>
+                                                            <exclude reference="Xiq-BU-56p"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="recordButtonPressed:" destination="Hlh-WD-L1b" eventType="touchUpInside" id="wQb-Bw-veV"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="biV-mh-oki" secondAttribute="trailing" id="B16-yZ-W5r"/>
+                                                <constraint firstItem="biV-mh-oki" firstAttribute="leading" secondItem="jug-LA-CCI" secondAttribute="trailing" constant="8" id="Dft-vE-mPg"/>
+                                                <constraint firstItem="Ruh-nI-Kg6" firstAttribute="centerY" secondItem="ZRM-bs-7uM" secondAttribute="centerY" id="JQR-9a-7VV"/>
+                                                <constraint firstItem="jug-LA-CCI" firstAttribute="leading" secondItem="Ruh-nI-Kg6" secondAttribute="trailing" constant="8" id="Ycc-t4-TUc"/>
+                                                <constraint firstItem="jug-LA-CCI" firstAttribute="centerY" secondItem="ZRM-bs-7uM" secondAttribute="centerY" id="pEi-Vt-VJ2"/>
+                                                <constraint firstItem="Ruh-nI-Kg6" firstAttribute="leading" secondItem="ZRM-bs-7uM" secondAttribute="leadingMargin" constant="29" id="sfR-Xt-Ucd"/>
+                                                <constraint firstItem="biV-mh-oki" firstAttribute="centerY" secondItem="ZRM-bs-7uM" secondAttribute="centerY" id="zst-OT-pyI"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="excerciseLabel" destination="fOD-NH-uet" id="xOv-N0-Ohj"/>
+                                            <outlet property="memberLabel" destination="Ruh-nI-Kg6" id="4PV-T4-qYO"/>
+                                            <outlet property="memberRecordLabel" destination="biV-mh-oki" id="AWX-4T-Hat"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordMemberCell" rowHeight="44" id="ZV8-rt-vfJ" customClass="RecordTableViewCell" customModule="TrainerKeeper" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="recordExerciseRepsCell" rowHeight="44" id="ZV8-rt-vfJ" customClass="RecordTableViewCell" customModule="TrainerKeeper" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZV8-rt-vfJ" id="lgN-YB-uyc">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdA-MQ-XxB">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Member Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdA-MQ-XxB">
                                                     <rect key="frame" x="35" y="11" width="366" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -569,30 +606,15 @@
                                                         <outlet property="delegate" destination="Hlh-WD-L1b" id="dm5-qR-Xjm"/>
                                                     </connections>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JD-0f-45G">
-                                                    <rect key="frame" x="409" y="7" width="45" height="30"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="mmW-e9-bPX"/>
-                                                        <constraint firstAttribute="width" constant="45" id="zTQ-vX-Npd"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Rec"/>
-                                                    <connections>
-                                                        <action selector="recordButtonPressed:" destination="Hlh-WD-L1b" eventType="touchUpInside" id="X5q-xZ-fhZ"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="PdA-MQ-XxB" firstAttribute="leading" secondItem="lgN-YB-uyc" secondAttribute="leadingMargin" constant="27" id="5BK-ZD-Hmk"/>
                                                 <constraint firstItem="HnL-5Z-kBZ" firstAttribute="centerY" secondItem="lgN-YB-uyc" secondAttribute="centerY" id="5qh-Gw-bJe"/>
                                                 <constraint firstItem="HnL-5Z-kBZ" firstAttribute="leading" secondItem="PdA-MQ-XxB" secondAttribute="trailing" constant="21" id="IU1-I8-MP6"/>
-                                                <constraint firstItem="1JD-0f-45G" firstAttribute="centerY" secondItem="lgN-YB-uyc" secondAttribute="centerY" id="Pic-qR-MSE"/>
                                                 <constraint firstItem="HnL-5Z-kBZ" firstAttribute="leading" secondItem="PdA-MQ-XxB" secondAttribute="trailing" constant="177" id="aCd-Rh-Lte"/>
-                                                <constraint firstItem="HnL-5Z-kBZ" firstAttribute="leading" secondItem="1JD-0f-45G" secondAttribute="trailing" constant="8" id="dsq-ds-id8"/>
                                                 <constraint firstItem="HnL-5Z-kBZ" firstAttribute="centerY" secondItem="PdA-MQ-XxB" secondAttribute="centerY" id="g04-in-qCy"/>
                                                 <constraint firstItem="HnL-5Z-kBZ" firstAttribute="trailing" secondItem="lgN-YB-uyc" secondAttribute="trailingMargin" id="hgM-6J-bPd"/>
-                                                <constraint firstItem="1JD-0f-45G" firstAttribute="leading" secondItem="PdA-MQ-XxB" secondAttribute="trailing" constant="8" id="p5M-wc-oCT"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -641,7 +663,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="recordTableView" destination="pNg-ok-J23" id="Sut-qI-PYz"/>
-                        <outlet property="stopwatchLabel" destination="nj3-2n-cqn" id="wqv-hz-Z7D"/>
+                        <outlet property="stopwatchLabel" destination="nj3-2n-cqn" id="LRL-W0-iVm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J1h-G9-tlp" userLabel="First Responder" sceneMemberID="firstResponder"/>

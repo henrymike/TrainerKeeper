@@ -37,7 +37,13 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let memberCell = tableView.dequeueReusableCellWithIdentifier("recordMemberCell", forIndexPath: indexPath) as! RecordTableViewCell
+        var memberCell : RecordTableViewCell
+        let currentExerciseType = recordDataArray[indexPath.section]!["type"] as! String
+        if currentExerciseType != "Time" {
+            memberCell = tableView.dequeueReusableCellWithIdentifier("recordExerciseRepsCell", forIndexPath: indexPath) as! RecordTableViewCell
+        } else {
+            memberCell = tableView.dequeueReusableCellWithIdentifier("recordExerciseTimeCell", forIndexPath: indexPath) as! RecordTableViewCell
+        }
         let recordMember = recordMemberArray[indexPath.row]
         memberCell.memberLabel.text = "\(recordMember!["firstName"] as! String!) \(recordMember!["lastName"] as! String!)"
         
@@ -93,7 +99,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         let currentExerciseName = recordDataArray[indexPath.section]!["name"] as! String
         let currentWorkout = filterWorkoutDetail(currentMemberFirstName, memberLastName: currentMemberLastName, exerciseName: currentExerciseName)
         currentWorkout.exerciseSeconds = Double(stopwatchTimeSeconds) // record time in seconds
-        cell.memberRecordTextField.text = stopwatchTimeDisplay // display human-readable time
+        cell.memberRecordLabel.text = stopwatchTimeDisplay // display human-readable time
         
         print("memberFN:\(currentWorkout.memberFirstName) memberLN:\(currentWorkout.memberLastName) exercise:\(currentWorkout.exerciseName) reps:\(currentWorkout.exerciseReps) time:\(currentWorkout.exerciseSeconds) measure:\(currentWorkout.exerciseMeasure)")
     }

@@ -13,6 +13,7 @@ class RecordTableViewCell: UITableViewCell {
     //MARK: - Properties
     @IBOutlet weak var excerciseLabel :UILabel!
     @IBOutlet weak var memberLabel :UILabel!
+    @IBOutlet weak var memberRecordLabel :UILabel!
     @IBOutlet weak var memberRecordTextField :UITextField!
     
     
