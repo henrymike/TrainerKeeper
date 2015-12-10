@@ -28,6 +28,7 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return dataManager.classesDataArray.count
     }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let filteredArray = filterMemberByClass(dataManager.classesDataArray[section])
         return filteredArray.count

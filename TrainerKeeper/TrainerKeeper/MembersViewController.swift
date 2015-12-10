@@ -19,25 +19,35 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK: - Table View Methods
     
+    func filterMemberByClass(group: PFObject) -> [PFObject] {
+        let filteredMembers = dataManager.membersDataArray.filter({$0["parent"] as! PFObject == group})
+        return filteredMembers
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return dataManager.classesDataArray.count
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager.membersDataArray.count
+        let filteredArray = filterMemberByClass(dataManager.classesDataArray[section])
+        return filteredArray.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return (dataManager.classesDataArray[section]["groupName"] as! String)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let memberCell = tableView.dequeueReusableCellWithIdentifier("memberCell", forIndexPath:
             indexPath) as UITableViewCell
-        let currentMember = dataManager.membersDataArray[indexPath.row]
+        let filteredArray = filterMemberByClass(dataManager.classesDataArray[indexPath.section])
+        let currentMember = filteredArray[indexPath.row]
         
         memberCell.textLabel!.text = "\(currentMember["firstName"] as! String!) \(currentMember["lastName"] as! String!)"
         
-        //        if currentMember["parent"]["groupName"] != nil{
-        //            memberCell.detailTextLabel!.text = currentMember["parent"]["groupName"] as! String!
-        //        } else {
-        //            print("No Group for Member \(currentMember)")
-        //        }
-        
         return memberCell
     }
+    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
@@ -51,7 +61,8 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
         if segue.identifier == "segueMemberEdit" {
             let destController = segue.destinationViewController as! MembersDetailViewController
             let indexPath = membersTableView.indexPathForSelectedRow!
-            let selectedMember = dataManager.membersDataArray[indexPath.row]
+            let filteredArray = filterMemberByClass(dataManager.classesDataArray[indexPath.section])
+            let selectedMember = filteredArray[indexPath.row]
             destController.selectedMember = selectedMember
             membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
