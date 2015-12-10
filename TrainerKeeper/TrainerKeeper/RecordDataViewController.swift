@@ -44,6 +44,61 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         return memberCell
     }
     
+    
+    //MARK: - Stopwatch Methods
+    
+    var startTime = NSTimeInterval()
+    var timer = NSTimer()
+    var stopwatchTimeDisplay = String()
+    var stopwatchTimeSeconds = Double()
+    @IBOutlet weak var stopwatchLabel :UILabel!
+    
+    func stopwatchUpdateTime() {
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        var elapsedTime: NSTimeInterval = currentTime - startTime
+        let minutes = UInt8(elapsedTime / 60.0)
+        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        let seconds = UInt8(elapsedTime)
+        elapsedTime -= NSTimeInterval(seconds)
+        let fraction = UInt8(elapsedTime * 100)
+        
+        let strMinutes = String(format: "%02d", minutes)
+        let strSeconds = String(format: "%02d", seconds)
+        let strFraction = String(format: "%02d", fraction)
+        
+        stopwatchTimeDisplay = ("\(strMinutes):\(strSeconds):\(strFraction)")
+        stopwatchLabel.text = stopwatchTimeDisplay
+        stopwatchTimeSeconds = elapsedTime
+    }
+    
+    @IBAction func startButtonPressed(sender: UIButton) {
+        if !timer.valid {
+            let aSelector : Selector = "stopwatchUpdateTime"
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
+            startTime = NSDate.timeIntervalSinceReferenceDate()
+        }
+    }
+    
+    @IBAction func stopButtonPressed(sender: UIButton) {
+        timer.invalidate()
+    }
+    
+    @IBAction func recordButtonPressed(sender: UIButton) {
+        let point = sender.convertPoint(CGPointZero, toView: recordTableView)
+        let indexPath = recordTableView.indexPathForRowAtPoint(point)!
+        let cell = recordTableView.cellForRowAtIndexPath(indexPath) as! RecordTableViewCell
+        let member = recordMemberArray[indexPath.row]
+        let currentMemberFirstName = (member!["firstName"] as! String)
+        let currentMemberLastName = (member!["lastName"] as! String)
+        let currentExerciseName = recordDataArray[indexPath.section]!["name"] as! String
+        let currentWorkout = filterWorkoutDetail(currentMemberFirstName, memberLastName: currentMemberLastName, exerciseName: currentExerciseName)
+        currentWorkout.exerciseSeconds = Double(stopwatchTimeSeconds) // record time in seconds
+        cell.memberRecordTextField.text = stopwatchTimeDisplay // display human-readable time
+        
+        print("memberFN:\(currentWorkout.memberFirstName) memberLN:\(currentWorkout.memberLastName) exercise:\(currentWorkout.exerciseName) reps:\(currentWorkout.exerciseReps) time:\(currentWorkout.exerciseSeconds) measure:\(currentWorkout.exerciseMeasure)")
+    }
+    
+    
     //MARK: - Save Methods
     
     func createWorkoutDetailArray() {
@@ -76,9 +131,8 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         let currentExerciseName = recordDataArray[indexPath.section]!["name"] as! String
         let currentWorkout = filterWorkoutDetail(currentMemberFirstName, memberLastName: currentMemberLastName, exerciseName: currentExerciseName)
         
-        // TODO: Not able to get correct values for Measure and Seconds; returns nil
         let currentExerciseType = recordDataArray[indexPath.section]!["type"] as! String
-        print("Current Exercise Type: \(currentExerciseType)")
+//        print("Current Exercise Type: \(currentExerciseType)")
         switch currentExerciseType {
         case "Reps":
             currentWorkout.exerciseReps = Int(cell.memberRecordTextField.text!)
@@ -110,6 +164,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
             }
             print("Record Member: \(recordMember)")
             recordMember.saveInBackground()
+            navigationController?.popToRootViewControllerAnimated(true)
         }
     }
     
@@ -119,9 +174,8 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         createWorkoutDetailArray()
-        
-        print("Segue Array: \(recordDataArray)")
-        print("Segue Member: \(recordMemberArray)")
+//        print("Segue Array: \(recordDataArray)")
+//        print("Segue Member: \(recordMemberArray)")
     }
 
     override func didReceiveMemoryWarning() {
