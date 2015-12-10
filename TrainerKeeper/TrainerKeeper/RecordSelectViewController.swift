@@ -50,34 +50,8 @@ class RecordSelectViewController: UIViewController, UICollectionViewDataSource, 
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(135, 140)
+        return CGSizeMake(125, 140)
     }
-    
-    
-    //MARK: - Table View Methods
-    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return dataManager.exercisesDataArray.count
-//    }
-//    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let classCell = tableView.dequeueReusableCellWithIdentifier("recordSelectCell", forIndexPath:
-//            indexPath) as UITableViewCell
-//        let currentExercise = dataManager.exercisesDataArray[indexPath.row]
-//        classCell.textLabel!.text = "\(currentExercise["name"] as! String!)"
-//        
-//        return classCell
-//    }
-//    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let selectedCell = recordSelectTableView.cellForRowAtIndexPath(indexPath)
-//        selectedCell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-//    }
-//    
-//    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-//        let selectedCell = recordSelectTableView.cellForRowAtIndexPath(indexPath)
-//        selectedCell?.accessoryType = UITableViewCellAccessoryType.None
-//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueMemberRecord" {

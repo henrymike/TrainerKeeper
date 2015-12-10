@@ -68,6 +68,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5540D0B01C18E8E50063BCB2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				55E117A51C1640C5006C36CA /* ExercisesCollectionViewCell.swift */,
+				55E117A31C15D8E2006C36CA /* RecordTableViewCell.swift */,
+				55D0704D1C172489000DE356 /* WorkoutDetail.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		55B549E41C0C93C2002F504B = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +111,9 @@
 				55C3C90E1C1219F700612C39 /* RecordMembersViewController.swift */,
 				55C3C9101C121BAD00612C39 /* RecordSelectViewController.swift */,
 				55C3C9121C121CF700612C39 /* RecordDataViewController.swift */,
-				55C3C90B1C10E56A00612C39 /* Managers */,
 				55B549F41C0C93C3002F504B /* Main.storyboard */,
+				55C3C90B1C10E56A00612C39 /* Managers */,
+				5540D0B01C18E8E50063BCB2 /* Classes */,
 				55B549F71C0C93C3002F504B /* Assets.xcassets */,
 				55B549F91C0C93C3002F504B /* LaunchScreen.storyboard */,
 				55B549FC1C0C93C3002F504B /* Info.plist */,
@@ -114,9 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				55B54A021C0CA2D5002F504B /* DataManager.swift */,
-				55E117A51C1640C5006C36CA /* ExercisesCollectionViewCell.swift */,
-				55E117A31C15D8E2006C36CA /* RecordTableViewCell.swift */,
-				55D0704D1C172489000DE356 /* WorkoutDetail.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";

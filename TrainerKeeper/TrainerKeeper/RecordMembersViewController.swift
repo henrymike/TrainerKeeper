@@ -20,11 +20,20 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
     
     //MARK: - Table View Methods
     
+    func filterMemberByClass(groupName: String) -> [PFObject] {
+        //        let groupName = (dataManager.membersDataArray["parent"]["groupName"] as! PFObject)
+        let filteredMembers = dataManager.membersDataArray.filter({$0.objectForKey("groupName") as! String == groupName
+        })
+        print("Filtered Members: \(filteredMembers)")
+        return filteredMembers
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return dataManager.classesDataArray.count
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataManager.membersDataArray.count
+//        return filterMemberByClass(dataManager.membersDataArray[section]).count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -37,7 +46,7 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
         let currentMember = dataManager.membersDataArray[indexPath.row]
         
         memberCell.textLabel!.text = "\(currentMember["firstName"] as! String!) \(currentMember["lastName"] as! String!)"
-
+        
         return memberCell
     }
     
@@ -74,14 +83,7 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
-//    func filterMemberByClass(category: String) -> WorkoutDetail {
-//        let className = (dataManager.membersDataArray["parent"]["groupName"] as! String)
-//        let filteredMembers = dataManager.membersDataArray.filter({$0. == category
-//        })
-//        return filteredMembers
-//    }
 
-    
     
     //MARK: - Life Cycle Methods
     
