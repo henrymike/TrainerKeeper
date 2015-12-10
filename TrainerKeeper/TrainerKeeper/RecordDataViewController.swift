@@ -90,7 +90,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
             print("Case Switch Error")
         }
         
-        print("memberFN:\(currentWorkout.memberFirstName) memberLN:\(currentWorkout.memberLastName) exercise:\(currentWorkout.exerciseName) reps:\(currentWorkout.exerciseReps)")
+        print("memberFN:\(currentWorkout.memberFirstName) memberLN:\(currentWorkout.memberLastName) exercise:\(currentWorkout.exerciseName) reps:\(currentWorkout.exerciseReps) time:\(currentWorkout.exerciseSeconds) measure:\(currentWorkout.exerciseMeasure)")
     }
     
     @IBAction func saveButtonPressed(sender: UIBarButtonItem) {
@@ -99,7 +99,15 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
             let recordMember = PFObject(className: "WorkoutDetail")
             recordMember["member"] = detail.member
             recordMember["exercise"] = detail.exercise
-            recordMember["exerciseReps"] = detail.exerciseReps
+            if detail.exerciseReps != nil {
+                recordMember["exerciseReps"] = detail.exerciseReps
+            }
+            if detail.exerciseMeasure != nil {
+                recordMember["exerciseMeasure"] = detail.exerciseMeasure
+            }
+            if detail.exerciseSeconds != nil {
+                recordMember["exerciseSeconds"] = detail.exerciseSeconds
+            }
             print("Record Member: \(recordMember)")
             recordMember.saveInBackground()
         }

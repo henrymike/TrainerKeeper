@@ -20,11 +20,8 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
     
     //MARK: - Table View Methods
     
-    func filterMemberByClass(groupName: String) -> [PFObject] {
-        //        let groupName = (dataManager.membersDataArray["parent"]["groupName"] as! PFObject)
-        let filteredMembers = dataManager.membersDataArray.filter({$0.objectForKey("groupName") as! String == groupName
-        })
-        print("Filtered Members: \(filteredMembers)")
+    func filterMemberByClass(group: PFObject) -> [PFObject] {
+        let filteredMembers = dataManager.membersDataArray.filter({$0["parent"] as! PFObject == group})
         return filteredMembers
     }
     
@@ -32,8 +29,8 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
         return dataManager.classesDataArray.count
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager.membersDataArray.count
-//        return filterMemberByClass(dataManager.membersDataArray[section]).count
+        let filteredArray = filterMemberByClass(dataManager.classesDataArray[section])
+        return filteredArray.count
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -43,7 +40,8 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let memberCell = tableView.dequeueReusableCellWithIdentifier("selectCell", forIndexPath:
             indexPath) as UITableViewCell
-        let currentMember = dataManager.membersDataArray[indexPath.row]
+        let filteredArray = filterMemberByClass(dataManager.classesDataArray[indexPath.section])
+        let currentMember = filteredArray[indexPath.row]
         
         memberCell.textLabel!.text = "\(currentMember["firstName"] as! String!) \(currentMember["lastName"] as! String!)"
         
@@ -60,22 +58,14 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
         selectedCell?.accessoryType = UITableViewCellAccessoryType.None
     }
     
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            let memberToDelete = dataManager.membersDataArray[indexPath.row]
-            memberToDelete.deleteInBackground()
-            dataManager.fetchMembersFromParse()
-        }
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueMemberSelect" {
             let destController = segue.destinationViewController as! RecordSelectViewController
             
             if let indexPaths = membersTableView.indexPathsForSelectedRows {
                 for indexPath in indexPaths {
-                    let selectedMember = dataManager.membersDataArray[indexPath.row]
+                    let filteredArray = filterMemberByClass(dataManager.classesDataArray[indexPath.section])
+                    let selectedMember = filteredArray[indexPath.row]
                     recordMemberArray.append(selectedMember)
                 }
                 destController.recordMemberArray = recordMemberArray

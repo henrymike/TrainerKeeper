@@ -28,6 +28,10 @@
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_record" translatesAutoresizingMaskIntoConstraints="NO" id="vTz-iE-b3I">
                                                 <rect key="frame" x="20" y="20" width="65" height="75"/>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="4lA-o2-OFQ"/>
+                                                    <constraint firstAttribute="width" constant="65" id="XMB-87-Juo"/>
+                                                </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Record Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qf-ro-xx8">
                                                 <rect key="frame" x="93" y="43" width="189" height="29"/>
@@ -76,6 +80,10 @@
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_members" translatesAutoresizingMaskIntoConstraints="NO" id="vTQ-cl-cpC">
                                                 <rect key="frame" x="18" y="27" width="65" height="75"/>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="d23-WL-O9Y"/>
+                                                    <constraint firstAttribute="width" constant="65" id="ts5-12-Vbx"/>
+                                                </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efK-Mv-abs">
                                                 <rect key="frame" x="91" y="50" width="189" height="29"/>
@@ -134,6 +142,10 @@
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_exercises" translatesAutoresizingMaskIntoConstraints="NO" id="ECW-PB-lCr">
                                                 <rect key="frame" x="20" y="2" width="65" height="75"/>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="65" id="5Qw-JR-6jR"/>
+                                                    <constraint firstAttribute="height" constant="75" id="Mec-0x-Sys"/>
+                                                </constraints>
                                             </imageView>
                                         </subviews>
                                         <animations/>
@@ -172,6 +184,10 @@
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_classes" translatesAutoresizingMaskIntoConstraints="NO" id="Bjv-CT-pYw">
                                                 <rect key="frame" x="17" y="27" width="65" height="75"/>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="ByJ-Js-uWz"/>
+                                                    <constraint firstAttribute="width" constant="65" id="Ijg-wz-bow"/>
+                                                </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifE-bp-LL6">
                                                 <rect key="frame" x="90" y="50" width="189" height="29"/>
@@ -220,6 +236,10 @@
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_progress" translatesAutoresizingMaskIntoConstraints="NO" id="FgE-BO-n9t">
                                                 <rect key="frame" x="20" y="2" width="65" height="75"/>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="Gq8-1V-mG5"/>
+                                                    <constraint firstAttribute="width" constant="65" id="l2X-pZ-RgV"/>
+                                                </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foA-Ft-qkc">
                                                 <rect key="frame" x="93" y="25" width="189" height="29"/>
@@ -266,48 +286,16 @@
                             <constraint firstItem="gzN-D2-QKQ" firstAttribute="top" secondItem="tZJ-0v-QbW" secondAttribute="bottom" constant="8" id="E72-he-pQM"/>
                             <constraint firstItem="gzN-D2-QKQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="GLi-iY-h2f"/>
                             <constraint firstItem="AvE-eQ-yx3" firstAttribute="width" secondItem="tZJ-0v-QbW" secondAttribute="width" id="Ida-1H-Obx"/>
-                            <constraint firstItem="tZJ-0v-QbW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="M5f-PI-lAI"/>
-                            <constraint firstItem="AvE-eQ-yx3" firstAttribute="bottom" secondItem="tZJ-0v-QbW" secondAttribute="bottom" id="Mcv-hT-7ZA"/>
                             <constraint firstItem="VsC-XX-3m6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="Mcw-cn-qpp"/>
-                            <constraint firstItem="tZJ-0v-QbW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="322" id="O2f-0J-UIu"/>
-                            <constraint firstItem="rpA-Rv-3Hs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="234" id="ODN-qC-YGi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AvE-eQ-yx3" secondAttribute="trailing" constant="-20" id="OfV-6M-6bK"/>
-                            <constraint firstItem="AvE-eQ-yx3" firstAttribute="leading" secondItem="tZJ-0v-QbW" secondAttribute="trailing" constant="20" id="OlT-Kw-8Wc"/>
-                            <constraint firstItem="rpA-Rv-3Hs" firstAttribute="top" secondItem="VsC-XX-3m6" secondAttribute="bottom" constant="8" symbolic="YES" id="QqE-e2-MTD"/>
-                            <constraint firstItem="rpA-Rv-3Hs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Sqk-Hx-S1g"/>
-                            <constraint firstItem="AvE-eQ-yx3" firstAttribute="top" secondItem="tZJ-0v-QbW" secondAttribute="top" id="ULc-LE-te0"/>
                             <constraint firstItem="tZJ-0v-QbW" firstAttribute="top" secondItem="rpA-Rv-3Hs" secondAttribute="bottom" constant="8" id="ccg-ht-B0J"/>
-                            <constraint firstItem="tZJ-0v-QbW" firstAttribute="top" secondItem="rpA-Rv-3Hs" secondAttribute="bottom" constant="8" symbolic="YES" id="ck8-an-zRq"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tZJ-0v-QbW" secondAttribute="bottom" constant="148" id="eWf-g6-ZKM"/>
-                            <constraint firstAttribute="trailing" secondItem="VsC-XX-3m6" secondAttribute="trailing" id="ezP-de-5KU"/>
                             <constraint firstItem="AvE-eQ-yx3" firstAttribute="leading" secondItem="tZJ-0v-QbW" secondAttribute="trailing" constant="10" id="fHj-by-Nee"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VsC-XX-3m6" secondAttribute="trailing" constant="-20" id="i6K-lU-n17"/>
                             <constraint firstItem="rpA-Rv-3Hs" firstAttribute="top" secondItem="VsC-XX-3m6" secondAttribute="bottom" constant="8" id="kv4-K6-AmJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gzN-D2-QKQ" secondAttribute="trailing" constant="-20" id="kz3-hP-iS8"/>
                             <constraint firstItem="tZJ-0v-QbW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="lhn-ef-WVq"/>
-                            <constraint firstItem="AvE-eQ-yx3" firstAttribute="trailing" secondItem="rpA-Rv-3Hs" secondAttribute="trailing" id="qA3-gn-glQ"/>
-                            <constraint firstAttribute="bottom" secondItem="rpA-Rv-3Hs" secondAttribute="bottom" constant="286" id="qzP-g2-dOz"/>
                             <constraint firstItem="rpA-Rv-3Hs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="smz-fj-GPL"/>
-                            <constraint firstAttribute="trailing" secondItem="tZJ-0v-QbW" secondAttribute="trailing" constant="310" id="wWz-1V-oSa"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="ezP-de-5KU"/>
-                                <exclude reference="ODN-qC-YGi"/>
-                                <exclude reference="QqE-e2-MTD"/>
-                                <exclude reference="Sqk-Hx-S1g"/>
-                                <exclude reference="qzP-g2-dOz"/>
-                                <exclude reference="M5f-PI-lAI"/>
-                                <exclude reference="O2f-0J-UIu"/>
-                                <exclude reference="ck8-an-zRq"/>
-                                <exclude reference="wWz-1V-oSa"/>
-                                <exclude reference="Mcv-hT-7ZA"/>
-                                <exclude reference="OlT-Kw-8Wc"/>
-                                <exclude reference="ULc-LE-te0"/>
-                                <exclude reference="qA3-gn-glQ"/>
-                                <exclude reference="eWf-g6-ZKM"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="TrainerKeeper" id="G54-LK-nwK"/>
                 </viewController>
