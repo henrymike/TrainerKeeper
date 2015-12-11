@@ -61,6 +61,8 @@ class ClassesViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.barTintColor = UIColor.init(red: 29/255, green: 177/255, blue: 83/255, alpha: 1)
+        
         dataManager.fetchClassesFromParse()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newClassesDataReceived", name: "receivedClassesDataFromServer", object: nil)
     }

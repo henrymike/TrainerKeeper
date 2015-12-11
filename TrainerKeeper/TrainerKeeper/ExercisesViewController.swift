@@ -58,6 +58,8 @@ class ExercisesViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.barTintColor = UIColor.init(red: 202/255, green: 210/255, blue: 56/255, alpha: 1)
+        
         dataManager.fetchExercisesFromParse()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newExercisesDataReceived", name: "receivedExercisesDataFromServer", object: nil)
     }

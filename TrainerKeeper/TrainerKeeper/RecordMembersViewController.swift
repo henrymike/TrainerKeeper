@@ -81,6 +81,7 @@ class RecordMembersViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         dataManager.fetchExercisesFromParse()
+        navigationController!.navigationBar.barTintColor = UIColor.init(red: 219/255, green: 44/255, blue: 38/255, alpha: 1)
     }
     
     override func viewDidAppear(animated: Bool) {

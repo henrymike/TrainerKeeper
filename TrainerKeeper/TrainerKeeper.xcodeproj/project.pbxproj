@@ -181,6 +181,7 @@
 				TargetAttributes = {
 					55B549EC1C0C93C2002F504B = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 6K26YVY47S;
 					};
 				};
 			};
@@ -395,6 +396,7 @@
 			baseConfigurationReference = 36DB6594E1E7E19D1AA3128B /* Pods-TrainerKeeper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TrainerKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.henrymike.TrainerKeeper;
@@ -407,6 +409,7 @@
 			baseConfigurationReference = B765AFCCCC21929B10F613BB /* Pods-TrainerKeeper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TrainerKeeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.henrymike.TrainerKeeper;

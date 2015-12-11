@@ -20,9 +20,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.barTintColor = UIColor.init(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
+        self.navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
         
         dataManager.fetchMembersFromParse()
         dataManager.fetchClassesFromParse()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationController!.navigationBar.barTintColor = UIColor.init(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {

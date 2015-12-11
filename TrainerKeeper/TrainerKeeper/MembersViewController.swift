@@ -79,6 +79,7 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.barTintColor = UIColor.init(red: 13/255, green: 117/255, blue: 204/255, alpha: 1)
     }
     
     override func viewDidAppear(animated: Bool) {
