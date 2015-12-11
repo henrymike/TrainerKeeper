@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ParseUI.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-TrainerKeeper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +22,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4043DBE330FF50CE6D7004418F3DC089</key>
+		<key>30CBA228500190B8C7F599C48ABCD0FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -38,11 +33,6 @@
 			<true/>
 		</dict>
 		<key>708E01B006A9F88B3C13711562282B5E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F710EAB41DD6932844C4A82A87A2628F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

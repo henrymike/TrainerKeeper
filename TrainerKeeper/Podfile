@@ -3,7 +3,6 @@ use_frameworks!
 
 target 'TrainerKeeper' do
 pod 'Parse'
-pod 'ParseUI'
 
 end
 

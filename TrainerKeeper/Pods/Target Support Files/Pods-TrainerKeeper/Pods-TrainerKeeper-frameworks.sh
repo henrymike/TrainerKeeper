@@ -86,10 +86,8 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-TrainerKeeper/Bolts.framework"
   install_framework "Pods-TrainerKeeper/Parse.framework"
-  install_framework "Pods-TrainerKeeper/ParseUI.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-TrainerKeeper/Bolts.framework"
   install_framework "Pods-TrainerKeeper/Parse.framework"
-  install_framework "Pods-TrainerKeeper/ParseUI.framework"
 fi

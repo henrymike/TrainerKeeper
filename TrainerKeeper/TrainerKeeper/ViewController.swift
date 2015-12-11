@@ -25,9 +25,11 @@ class ViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         dataManager.fetchMembersFromParse()
         dataManager.fetchClassesFromParse()
+        dataManager.fetchWorkoutDetailFromParse()
     }
     
     override func viewWillAppear(animated: Bool) {
