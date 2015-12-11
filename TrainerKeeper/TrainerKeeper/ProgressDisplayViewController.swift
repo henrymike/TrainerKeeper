@@ -37,21 +37,30 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
         //        let filteredArray = filterDataByMember(dataManager.exercisesDataArray)
         //        return filteredArray.count
-        return 22
+        return dataManager.workoutDataArray.count
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
-        return 34
+        let currentData = dataManager.workoutDataArray[index]
+        let reps = currentData["exerciseReps"] as! CGFloat
+        return reps
     }
     
     
     
     //MARK: Life Cycle Methods
     
+    func receivedWorkoutDataFromServer() {
+        print("Got Workout Data")
+        progressGraphView.reloadGraph()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Selected Member Array: \(selectedMemberArray)")
         print("Selected Data Array: \(selectedDataArray)")
+        dataManager.fetchWorkoutDetailFromParse(selectedMemberArray[0]!, exercise: selectedDataArray[0]!)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedWorkoutDataFromServer", name: "receivedWorkoutDataFromServer", object: nil)
     }
     
     override func didReceiveMemoryWarning() {

@@ -59,10 +59,11 @@ class DataManager: NSObject {
         
     }
     
-    func fetchWorkoutDetailFromParse() {
+    func fetchWorkoutDetailFromParse(member: PFObject, exercise: PFObject) {
         let fetchWorkoutDetail = PFQuery(className: "WorkoutDetail")
-        fetchWorkoutDetail.orderByAscending("exercise")
-        fetchWorkoutDetail.orderByAscending("member")
+        fetchWorkoutDetail.whereKey("exercise", equalTo: exercise)
+        fetchWorkoutDetail.whereKey("member", equalTo: member)
+        fetchWorkoutDetail.orderByAscending("createdAt")
         fetchWorkoutDetail.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
                 print("Got Workout Data")

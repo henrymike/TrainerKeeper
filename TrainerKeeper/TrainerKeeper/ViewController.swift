@@ -27,9 +27,9 @@ class ViewController: UIViewController {
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
+        //MOVE THESE
         dataManager.fetchMembersFromParse()
         dataManager.fetchClassesFromParse()
-        dataManager.fetchWorkoutDetailFromParse()
     }
     
     override func viewWillAppear(animated: Bool) {
