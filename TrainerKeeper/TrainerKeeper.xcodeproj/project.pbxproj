@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		553F3EA71C0F9D6000BC3375 /* ClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553F3EA61C0F9D6000BC3375 /* ClassesViewController.swift */; };
+		556A2A9B1C1B753000B344EA /* ProgressDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556A2A9A1C1B753000B344EA /* ProgressDisplayViewController.swift */; };
 		556E12A31C1B59710047FA7E /* BEMAverageLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 556E129A1C1B59710047FA7E /* BEMAverageLine.m */; };
 		556E12A41C1B59710047FA7E /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 556E129C1C1B59710047FA7E /* BEMCircle.m */; };
 		556E12A51C1B59710047FA7E /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 556E129E1C1B59710047FA7E /* BEMLine.m */; };
 		556E12A61C1B59710047FA7E /* BEMPermanentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 556E12A01C1B59710047FA7E /* BEMPermanentPopupView.m */; };
 		556E12A71C1B59710047FA7E /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 556E12A21C1B59710047FA7E /* BEMSimpleLineGraphView.m */; };
-		556E12A91C1B5C510047FA7E /* ProgressDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E12A81C1B5C510047FA7E /* ProgressDisplayViewController.swift */; };
 		556E12AB1C1B63860047FA7E /* ProgressMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E12AA1C1B63860047FA7E /* ProgressMemberViewController.swift */; };
 		556E12AD1C1B63920047FA7E /* ProgressSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E12AC1C1B63920047FA7E /* ProgressSelectViewController.swift */; };
 		55B549F11C0C93C3002F504B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B549F01C0C93C3002F504B /* AppDelegate.swift */; };
@@ -40,6 +40,7 @@
 /* Begin PBXFileReference section */
 		36DB6594E1E7E19D1AA3128B /* Pods-TrainerKeeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainerKeeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrainerKeeper/Pods-TrainerKeeper.debug.xcconfig"; sourceTree = "<group>"; };
 		553F3EA61C0F9D6000BC3375 /* ClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesViewController.swift; sourceTree = "<group>"; };
+		556A2A9A1C1B753000B344EA /* ProgressDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressDisplayViewController.swift; sourceTree = "<group>"; };
 		556E12901C1B2A3F0047FA7E /* TrainerKeeper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrainerKeeper-Bridging-Header.h"; sourceTree = "<group>"; };
 		556E12991C1B59710047FA7E /* BEMAverageLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAverageLine.h; sourceTree = "<group>"; };
 		556E129A1C1B59710047FA7E /* BEMAverageLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAverageLine.m; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		556E12A01C1B59710047FA7E /* BEMPermanentPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMPermanentPopupView.m; sourceTree = "<group>"; };
 		556E12A11C1B59710047FA7E /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
 		556E12A21C1B59710047FA7E /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
-		556E12A81C1B5C510047FA7E /* ProgressDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressDisplayViewController.swift; sourceTree = "<group>"; };
 		556E12AA1C1B63860047FA7E /* ProgressMemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressMemberViewController.swift; sourceTree = "<group>"; };
 		556E12AC1C1B63920047FA7E /* ProgressSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressSelectViewController.swift; sourceTree = "<group>"; };
 		55B549ED1C0C93C2002F504B /* TrainerKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrainerKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +153,7 @@
 				55C3C9121C121CF700612C39 /* RecordDataViewController.swift */,
 				556E12AA1C1B63860047FA7E /* ProgressMemberViewController.swift */,
 				556E12AC1C1B63920047FA7E /* ProgressSelectViewController.swift */,
-				556E12A81C1B5C510047FA7E /* ProgressDisplayViewController.swift */,
+				556A2A9A1C1B753000B344EA /* ProgressDisplayViewController.swift */,
 				55B549F41C0C93C3002F504B /* Main.storyboard */,
 				55C3C90B1C10E56A00612C39 /* Managers */,
 				5540D0B01C18E8E50063BCB2 /* Classes */,
@@ -313,10 +313,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556A2A9B1C1B753000B344EA /* ProgressDisplayViewController.swift in Sources */,
 				556E12A41C1B59710047FA7E /* BEMCircle.m in Sources */,
 				556E12A71C1B59710047FA7E /* BEMSimpleLineGraphView.m in Sources */,
 				55B549F31C0C93C3002F504B /* ViewController.swift in Sources */,
-				556E12A91C1B5C510047FA7E /* ProgressDisplayViewController.swift in Sources */,
 				556E12A61C1B59710047FA7E /* BEMPermanentPopupView.m in Sources */,
 				55B54A031C0CA2D5002F504B /* DataManager.swift in Sources */,
 				55E117A41C15D8E2006C36CA /* RecordTableViewCell.swift in Sources */,

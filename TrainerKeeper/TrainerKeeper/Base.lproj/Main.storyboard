@@ -552,7 +552,7 @@
                     <navigationItem key="navigationItem" title="Select Data" id="7vM-X2-pZP">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Nax-2L-ziU">
                             <connections>
-                                <segue destination="OVt-tJ-W5a" kind="show" id="Npm-Qy-O0u"/>
+                                <segue destination="OVt-tJ-W5a" kind="show" identifier="segueDataSelect" id="Npm-Qy-O0u"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

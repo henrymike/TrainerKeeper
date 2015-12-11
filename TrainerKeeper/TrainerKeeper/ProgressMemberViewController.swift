@@ -13,7 +13,7 @@ class ProgressMemberViewController: UIViewController {
 
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
-    var recordMemberArray :[PFObject?] = []
+    var selectedMemberArray :[PFObject?] = []
     @IBOutlet weak var membersTableView :UITableView!
     
     
@@ -67,9 +67,9 @@ class ProgressMemberViewController: UIViewController {
                 for indexPath in indexPaths {
                     let filteredArray = filterMemberByClass(dataManager.classesDataArray[indexPath.section])
                     let selectedMember = filteredArray[indexPath.row]
-                    recordMemberArray.append(selectedMember)
+                    selectedMemberArray.append(selectedMember)
                 }
-                destController.recordMemberArray = recordMemberArray
+                destController.selectedMemberArray = selectedMemberArray
             }
         }
     }

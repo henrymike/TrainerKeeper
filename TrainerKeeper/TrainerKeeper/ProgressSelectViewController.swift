@@ -13,8 +13,8 @@ class ProgressSelectViewController: UIViewController {
 
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
-    var recordMemberArray :[PFObject?] = []
-    var recordDataArray :[PFObject?] = []
+    var selectedMemberArray :[PFObject?] = []
+    var selectedDataArray :[PFObject?] = []
     @IBOutlet weak var dataSelectCollectionView :UICollectionView!
     
     
@@ -34,19 +34,19 @@ class ProgressSelectViewController: UIViewController {
         return exerciseCell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
-        if selectedCell.selected == true {
-            selectedCell.exerciseImageView.image = UIImage(named: "placeholder-checkmark")
-        }
-    }
+//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
+//        if selectedCell.selected == true {
+//            selectedCell.exerciseImageView.image = UIImage(named: "placeholder-checkmark")
+//        }
+//    }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
-        if selectedCell.selected == false {
-            selectedCell.exerciseImageView.image = UIImage(named: "placeholder")
-        }
-    }
+//    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+//        let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
+//        if selectedCell.selected == false {
+//            selectedCell.exerciseImageView.image = UIImage(named: "placeholder")
+//        }
+//    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(125, 100)
@@ -56,12 +56,12 @@ class ProgressSelectViewController: UIViewController {
         if segue.identifier == "segueDataSelect" {
             if let indexPaths = dataSelectCollectionView.indexPathsForSelectedItems() {
                 for indexPath in indexPaths {
-                    recordDataArray.append(dataManager.exercisesDataArray[indexPath.row])
+                    selectedDataArray.append(dataManager.exercisesDataArray[indexPath.row])
                 }
             }
             let destController = segue.destinationViewController as! ProgressDisplayViewController
-//            destController.recordDataArray = recordDataArray
-//            destController.recordMemberArray = recordMemberArray
+            destController.selectedDataArray = selectedDataArray
+            destController.selectedMemberArray = selectedMemberArray
         }
     }
     
