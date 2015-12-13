@@ -55,14 +55,22 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
         return date as String
     }
     
+    func graphCustomizations() {
+        self.progressGraphView.enablePopUpReport = true
+        self.progressGraphView.widthLine = 4.0
+        self.progressGraphView.sizePoint = 20.0
+        self.progressGraphView.colorTop = UIColor.init(red: 255/255, green: 104/255, blue: 29/255, alpha: 1)
+        self.progressGraphView.alphaTop = 0.8
+        self.progressGraphView.colorBottom = UIColor.init(red: 255/255, green: 104/255, blue: 29/255, alpha: 1)
+    }
     
     
     //MARK: Life Cycle Methods
     
     func receivedWorkoutDataFromServer() {
         print("Got Workout Data")
+        graphCustomizations()
         progressGraphView.reloadGraph()
-        self.progressGraphView.enableYAxisLabel = true
     }
     
     override func viewDidLoad() {

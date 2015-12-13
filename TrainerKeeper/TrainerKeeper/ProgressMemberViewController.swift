@@ -79,6 +79,7 @@ class ProgressMemberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.barTintColor = UIColor.init(red: 255/255, green: 104/255, blue: 29/255, alpha: 1)
         dataManager.fetchExercisesFromParse()
     }
 
