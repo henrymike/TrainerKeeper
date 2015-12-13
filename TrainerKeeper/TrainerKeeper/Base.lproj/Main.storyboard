@@ -383,9 +383,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5by-aa-L0r" customClass="BEMSimpleLineGraphView">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="20" y="85" width="560" height="495"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableYAxisLabel" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableXAxisLabel" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="colorXaxisLabel">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="OVt-tJ-W5a" id="Ux5-e3-0XO"/>
                                     <outlet property="delegate" destination="OVt-tJ-W5a" id="Z2f-KP-OzK"/>
@@ -395,10 +402,10 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5by-aa-L0r" firstAttribute="leading" secondItem="Aio-0w-d5X" secondAttribute="leadingMargin" constant="-20" id="KES-gi-gFr"/>
-                            <constraint firstItem="5by-aa-L0r" firstAttribute="top" secondItem="iiK-kc-fIf" secondAttribute="bottom" id="nc6-qo-wBE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5by-aa-L0r" secondAttribute="trailing" constant="-20" id="ydn-jk-Ooi"/>
-                            <constraint firstItem="wfY-ze-GpD" firstAttribute="top" secondItem="5by-aa-L0r" secondAttribute="bottom" id="z5d-ec-LGY"/>
+                            <constraint firstItem="5by-aa-L0r" firstAttribute="leading" secondItem="Aio-0w-d5X" secondAttribute="leadingMargin" id="KES-gi-gFr"/>
+                            <constraint firstItem="5by-aa-L0r" firstAttribute="top" secondItem="iiK-kc-fIf" secondAttribute="bottom" constant="21" id="nc6-qo-wBE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5by-aa-L0r" secondAttribute="trailing" id="ydn-jk-Ooi"/>
+                            <constraint firstItem="wfY-ze-GpD" firstAttribute="top" secondItem="5by-aa-L0r" secondAttribute="bottom" constant="20" id="z5d-ec-LGY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Progress" id="LZI-5R-bkR"/>

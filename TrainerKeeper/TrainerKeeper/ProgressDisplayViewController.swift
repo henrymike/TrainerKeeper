@@ -46,6 +46,15 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
         return reps
     }
     
+    func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
+        let currentData = dataManager.workoutDataArray[index]
+        let dateUpdated = currentData.updatedAt! as NSDate
+        let dateFormat = NSDateFormatter()
+        dateFormat.dateFormat = "M/d/yy"
+        let date = NSString(format: "%@", dateFormat.stringFromDate(dateUpdated))
+        return date as String
+    }
+    
     
     
     //MARK: Life Cycle Methods
@@ -53,6 +62,7 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
     func receivedWorkoutDataFromServer() {
         print("Got Workout Data")
         progressGraphView.reloadGraph()
+        self.progressGraphView.enableYAxisLabel = true
     }
     
     override func viewDidLoad() {

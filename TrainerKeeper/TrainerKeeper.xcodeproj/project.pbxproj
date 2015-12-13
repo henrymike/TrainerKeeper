@@ -90,14 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5540D0B01C18E8E50063BCB2 /* Classes */ = {
+		5540D0B01C18E8E50063BCB2 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
 				55E117A51C1640C5006C36CA /* ExercisesCollectionViewCell.swift */,
 				55E117A31C15D8E2006C36CA /* RecordTableViewCell.swift */,
 				55D0704D1C172489000DE356 /* WorkoutDetail.swift */,
 			);
-			name = Classes;
+			name = "Custom Classes";
 			sourceTree = "<group>";
 		};
 		556E12981C1B59710047FA7E /* Classes */ = {
@@ -156,7 +156,7 @@
 				556A2A9A1C1B753000B344EA /* ProgressDisplayViewController.swift */,
 				55B549F41C0C93C3002F504B /* Main.storyboard */,
 				55C3C90B1C10E56A00612C39 /* Managers */,
-				5540D0B01C18E8E50063BCB2 /* Classes */,
+				5540D0B01C18E8E50063BCB2 /* Custom Classes */,
 				55B549F71C0C93C3002F504B /* Assets.xcassets */,
 				55B549F91C0C93C3002F504B /* LaunchScreen.storyboard */,
 				55B549FC1C0C93C3002F504B /* Info.plist */,

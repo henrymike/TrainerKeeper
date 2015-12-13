@@ -273,7 +273,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
         NSLog(@"[BEMSimpleLineGraph] Data source contains no data. A no data label will be displayed and drawing will stop. Add data to the data source and then reload the graph.");
         
 #if !TARGET_INTERFACE_BUILDER
-        self.noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.viewForBaselineLayout.frame.size.width, self.viewForBaselineLayout.frame.size.height)];
+        self.noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.viewForFirstBaselineLayout.frame.size.width, self.viewForFirstBaselineLayout.frame.size.height)];
 #else
         self.noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.viewForBaselineLayout.frame.size.width, self.viewForBaselineLayout.frame.size.height-(self.viewForBaselineLayout.frame.size.height/4))];
 #endif
@@ -293,7 +293,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
         self.noDataLabel.font = self.noDataLabelFont ?: [UIFont fontWithName:@"HelveticaNeue-Light" size:15];
         self.noDataLabel.textColor = self.noDataLabelColor ?: self.colorLine;
 
-        [self.viewForBaselineLayout addSubview:self.noDataLabel];
+        [self.viewForFirstBaselineLayout addSubview:self.noDataLabel];
         
         // Let the delegate know that the graph finished layout updates
         if ([self.delegate respondsToSelector:@selector(lineGraphDidFinishLoading:)])
@@ -327,9 +327,9 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
         self.touchInputLine.alpha = 0;
         [self addSubview:self.touchInputLine];
         
-        self.panView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, self.viewForBaselineLayout.frame.size.width, self.viewForBaselineLayout.frame.size.height)];
+        self.panView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, self.viewForFirstBaselineLayout.frame.size.width, self.viewForFirstBaselineLayout.frame.size.height)];
         self.panView.backgroundColor = [UIColor clearColor];
-        [self.viewForBaselineLayout addSubview:self.panView];
+        [self.viewForFirstBaselineLayout addSubview:self.panView];
         
         self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGestureAction:)];
         self.panGesture.delegate = self;
@@ -839,7 +839,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     
     // Add support multi-line, but this might overlap with the graph line if text have too many lines
     labelXAxis.numberOfLines = 0;
-    CGRect lRect = [labelXAxis.text boundingRectWithSize:self.viewForBaselineLayout.frame.size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:labelXAxis.font} context:nil];
+    CGRect lRect = [labelXAxis.text boundingRectWithSize:self.viewForFirstBaselineLayout.frame.size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:labelXAxis.font} context:nil];
     
     CGPoint center;
     
@@ -870,9 +870,11 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     
     // Set the final center point of the x-axis labels
     if (self.positionYAxisRight) {
-        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2);
+//        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2);
+        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height + 5);
     } else {
-        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2);
+//        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2);
+        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height + 5);
     }
     
     CGRect rect = labelXAxis.frame;
@@ -1310,7 +1312,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 
 
 - (void)handleGestureAction:(UIGestureRecognizer *)recognizer {
-    CGPoint translation = [recognizer locationInView:self.viewForBaselineLayout];
+    CGPoint translation = [recognizer locationInView:self.viewForFirstBaselineLayout];
     
     if (!((translation.x + self.frame.origin.x) <= self.frame.origin.x) && !((translation.x + self.frame.origin.x) >= self.frame.origin.x + self.frame.size.width)) { // To make sure the vertical line doesn't go beyond the frame of the graph.
         self.touchInputLine.frame = CGRectMake(translation.x - self.widthTouchInputLine/2, 0, self.widthTouchInputLine, self.frame.size.height);
