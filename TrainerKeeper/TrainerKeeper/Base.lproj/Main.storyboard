@@ -513,16 +513,25 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dataCell" id="79o-wU-rYL" customClass="ExercisesCollectionViewCell" customModule="TrainerKeeper" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="125" height="100"/>
+                                        <rect key="frame" x="0.0" y="64" width="125" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="125" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUm-nh-YPb">
-                                                    <rect key="frame" x="8" y="39" width="109" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nwb-1M-pX6">
+                                                    <rect key="frame" x="7" y="8" width="110" height="100"/>
                                                     <animations/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="110" id="s4a-NR-0Mf"/>
+                                                        <constraint firstAttribute="height" constant="100" id="xmi-EE-wxh"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUm-nh-YPb">
+                                                    <rect key="frame" x="8" y="112" width="109" height="21"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="TId-Us-d6B"/>
                                                         <constraint firstAttribute="height" constant="21" id="zum-p8-OdA"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -536,11 +545,24 @@
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="uUm-nh-YPb" secondAttribute="trailing" id="DJk-R3-nnp"/>
+                                            <constraint firstAttribute="topMargin" secondItem="Nwb-1M-pX6" secondAttribute="top" id="HJZ-f4-c2e"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="uUm-nh-YPb" secondAttribute="leading" id="OqZ-vA-Z2Q"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Nwb-1M-pX6" secondAttribute="trailing" id="SjF-SZ-NDS"/>
+                                            <constraint firstItem="Nwb-1M-pX6" firstAttribute="leading" secondItem="79o-wU-rYL" secondAttribute="leadingMargin" constant="-1" id="Zy3-sk-pjX"/>
+                                            <constraint firstItem="uUm-nh-YPb" firstAttribute="top" secondItem="Nwb-1M-pX6" secondAttribute="bottom" constant="4" id="d3N-K5-KRX"/>
                                             <constraint firstItem="uUm-nh-YPb" firstAttribute="centerY" secondItem="79o-wU-rYL" secondAttribute="centerY" id="vbP-0b-J4e"/>
                                             <constraint firstItem="uUm-nh-YPb" firstAttribute="centerX" secondItem="79o-wU-rYL" secondAttribute="centerX" id="xDu-do-Iy4"/>
                                         </constraints>
-                                        <size key="customSize" width="125" height="100"/>
+                                        <size key="customSize" width="125" height="140"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="vbP-0b-J4e"/>
+                                                <exclude reference="xDu-do-Iy4"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
+                                            <outlet property="exerciseImageView" destination="Nwb-1M-pX6" id="RJ9-o9-OD7"/>
                                             <outlet property="exerciseLabel" destination="uUm-nh-YPb" id="AVd-9G-aZY"/>
                                         </connections>
                                     </collectionViewCell>

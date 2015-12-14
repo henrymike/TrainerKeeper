@@ -82,6 +82,11 @@ class ProgressMemberViewController: UIViewController {
         navigationController!.navigationBar.barTintColor = UIColor.init(red: 255/255, green: 104/255, blue: 29/255, alpha: 1)
         dataManager.fetchExercisesFromParse()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        selectedMemberArray.removeAll()
+        dataManager.workoutDataArray.removeAll()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

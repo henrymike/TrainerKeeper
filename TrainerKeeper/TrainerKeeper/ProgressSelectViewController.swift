@@ -30,27 +30,27 @@ class ProgressSelectViewController: UIViewController {
         let exerciseCell = collectionView.dequeueReusableCellWithReuseIdentifier("dataCell", forIndexPath: indexPath) as! ExercisesCollectionViewCell
         let currentExercise = dataManager.exercisesDataArray[indexPath.row]
         exerciseCell.exerciseLabel.text = "\(currentExercise["name"] as! String!)"
-//        exerciseCell.exerciseImageView.image = UIImage(named: "placeholder")
+        exerciseCell.exerciseImageView.image = UIImage(named: "placeholder")
         
         return exerciseCell
     }
     
-//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
-//        if selectedCell.selected == true {
-//            selectedCell.exerciseImageView.image = UIImage(named: "placeholder-checkmark")
-//        }
-//    }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
+        if selectedCell.selected == true {
+            selectedCell.exerciseImageView.image = UIImage(named: "placeholder-checkmark")
+        }
+    }
     
-//    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-//        let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
-//        if selectedCell.selected == false {
-//            selectedCell.exerciseImageView.image = UIImage(named: "placeholder")
-//        }
-//    }
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
+        if selectedCell.selected == false {
+            selectedCell.exerciseImageView.image = UIImage(named: "placeholder")
+        }
+    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(125, 100)
+        return CGSizeMake(125, 140)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
