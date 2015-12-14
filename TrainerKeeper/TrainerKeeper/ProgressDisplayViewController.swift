@@ -23,27 +23,41 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
     var dataManager = DataManager.sharedInstance
     var selectedMemberArray :[PFObject?] = []
     var selectedDataArray :[PFObject?] = []
+    var graphTitle :String = ""
     @IBOutlet weak var progressGraphView :BEMSimpleLineGraphView!
     
     
     
     //MARK: - Graph View Methods
     
-//    func filterDataByMember(group: PFObject) -> [PFObject] {
-//        let filteredData = selectedDataArray.filter({$0["member"] as! PFObject == group})
-//        return filteredData
-//    }
-    
     func numberOfPointsInLineGraph(graph: BEMSimpleLineGraphView) -> Int {
-        //        let filteredArray = filterDataByMember(dataManager.exercisesDataArray)
-        //        return filteredArray.count
         return dataManager.workoutDataArray.count
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
         let currentData = dataManager.workoutDataArray[index]
-        let reps = currentData["exerciseReps"] as! CGFloat
-        return reps
+        print("Current Data: \(currentData)")
+        
+//        let reps = currentData["exerciseReps"] as! CGFloat
+//        print("Reps:\(reps)")
+//        return reps
+
+        let currentExerciseType = selectedDataArray[0]!["type"] as! String
+        print("Current Exercise Type: \(currentExerciseType)")
+
+        var dataFromExerciseType :CGFloat!
+        switch currentExerciseType {
+        case "Reps":
+            dataFromExerciseType = currentData["exerciseReps"] as! CGFloat
+        case "Measure":
+            dataFromExerciseType = currentData["exerciseMeasure"] as! CGFloat
+        case "Time":
+            dataFromExerciseType = currentData["exerciseSeconds"] as! CGFloat
+        default:
+            print("Case Switch Error")
+        }
+        print("DataFromExerciseType: \(dataFromExerciseType)")
+        return dataFromExerciseType
     }
     
     func lineGraph(graph: BEMSimpleLineGraphView, labelOnXAxisForIndex index: Int) -> String {
@@ -79,7 +93,7 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
     
     func receivedWorkoutDataFromServer() {
         print("Got Workout Data")
-        let navTitle = selectedDataArray["exercise"]
+//        let navTitle = selectedDataArray["exercise"]
         self.title = ""
         graphCustomizations()
         progressGraphView.reloadGraph()

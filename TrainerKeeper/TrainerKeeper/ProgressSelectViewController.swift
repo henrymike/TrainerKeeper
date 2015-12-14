@@ -15,6 +15,7 @@ class ProgressSelectViewController: UIViewController {
     var dataManager = DataManager.sharedInstance
     var selectedMemberArray :[PFObject?] = []
     var selectedDataArray :[PFObject?] = []
+    var graphTitle :String = ""
     @IBOutlet weak var dataSelectCollectionView :UICollectionView!
     
     
@@ -62,6 +63,7 @@ class ProgressSelectViewController: UIViewController {
             let destController = segue.destinationViewController as! ProgressDisplayViewController
             destController.selectedDataArray = selectedDataArray
             destController.selectedMemberArray = selectedMemberArray
+            destController.graphTitle = graphTitle
         }
     }
     
@@ -70,6 +72,11 @@ class ProgressSelectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        selectedDataArray.removeAll()
+        dataManager.workoutDataArray.removeAll()
     }
     
     override func didReceiveMemoryWarning() {
