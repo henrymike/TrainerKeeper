@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import CoreFoundation
 
 class RecordDataViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -54,19 +55,22 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     //MARK: - Stopwatch Methods
     
     var startTime = NSTimeInterval()
+    var recStartTime: CFAbsoluteTime!
     var timer = NSTimer()
     var stopwatchTimeDisplay = String()
-    var stopwatchTimeSeconds = Double()
+    var stopwatchTimeSeconds = 0.0
     @IBOutlet weak var stopwatchLabel :UILabel!
     
     func stopwatchUpdateTime() {
         let currentTime = NSDate.timeIntervalSinceReferenceDate()
-        var elapsedTime: NSTimeInterval = currentTime - startTime
-        let minutes = UInt8(elapsedTime / 60.0)
-        elapsedTime -= (NSTimeInterval(minutes) * 60)
-        let seconds = UInt8(elapsedTime)
-        elapsedTime -= NSTimeInterval(seconds)
-        let fraction = UInt8(elapsedTime * 100)
+        let elapsedTime: NSTimeInterval = currentTime - startTime
+        print("ET:\(elapsedTime) = CT:\(currentTime) - ST:\(startTime)")
+        var timeToDisplay = elapsedTime
+        let minutes = UInt8(timeToDisplay / 60.0)
+        timeToDisplay -= (NSTimeInterval(minutes) * 60)
+        let seconds = UInt8(timeToDisplay)
+        timeToDisplay -= NSTimeInterval(seconds)
+        let fraction = UInt8(timeToDisplay * 100)
         
         let strMinutes = String(format: "%02d", minutes)
         let strSeconds = String(format: "%02d", seconds)
@@ -85,7 +89,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
-    @IBAction func stopButtonPressed(sender: UIButton) {
+    @IBAction func stopButtonPressed() {
         timer.invalidate()
     }
     
@@ -169,6 +173,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
                 recordMember["exerciseSeconds"] = detail.exerciseSeconds
             }
             print("Record Member: \(recordMember)")
+            self.stopButtonPressed()
             recordMember.saveInBackground()
             navigationController?.popToRootViewControllerAnimated(true)
         }

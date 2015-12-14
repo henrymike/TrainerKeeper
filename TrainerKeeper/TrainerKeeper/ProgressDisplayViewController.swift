@@ -52,7 +52,10 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
         case "Measure":
             dataFromExerciseType = currentData["exerciseMeasure"] as! CGFloat
         case "Time":
-            dataFromExerciseType = currentData["exerciseSeconds"] as! CGFloat
+            let time : NSTimeInterval = currentData["exerciseSeconds"] as! NSTimeInterval
+            let timeFormatter = NSTimeInterval(time) * 10
+            dataFromExerciseType = CGFloat(timeFormatter)
+//            dataFromExerciseType = currentData["exerciseSeconds"] as! CGFloat
         default:
             print("Case Switch Error")
         }

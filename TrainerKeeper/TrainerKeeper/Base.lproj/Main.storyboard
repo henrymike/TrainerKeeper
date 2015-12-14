@@ -168,7 +168,7 @@
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.79395569423121581" green="0.82491410340314131" blue="0.21798007850815568" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32156862745098036" green="0.82352941176470584" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="z9m-a6-KB2" firstAttribute="centerX" secondItem="rpA-Rv-3Hs" secondAttribute="centerX" id="Jbt-sB-9pA"/>
                                     <constraint firstAttribute="height" constant="80" id="g6x-pV-feQ"/>
@@ -220,7 +220,7 @@
                                     </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.11481599000189595" green="0.69431037303664922" blue="0.32537831472305612" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="90y-cH-BSG" firstAttribute="centerX" secondItem="AvE-eQ-yx3" secondAttribute="centerX" id="PNV-oq-zCx"/>
                                     <constraint firstItem="90y-cH-BSG" firstAttribute="centerY" secondItem="AvE-eQ-yx3" secondAttribute="centerY" id="Qov-Kw-4m2"/>
