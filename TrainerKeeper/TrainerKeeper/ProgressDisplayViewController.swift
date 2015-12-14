@@ -62,6 +62,16 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
         self.progressGraphView.colorTop = UIColor.init(red: 255/255, green: 104/255, blue: 29/255, alpha: 1)
         self.progressGraphView.alphaTop = 0.8
         self.progressGraphView.colorBottom = UIColor.init(red: 255/255, green: 104/255, blue: 29/255, alpha: 1)
+        self.progressGraphView.averageLine.enableAverageLine = true
+        self.progressGraphView.averageLine.dashPattern = [2,3,3,2]
+        self.progressGraphView.enableReferenceAxisFrame = true
+        self.progressGraphView.enableReferenceXAxisLines = true
+        self.progressGraphView.enableReferenceYAxisLines = false
+//        self.progressGraphView.enableRightReferenceAxisFrameLine = true
+//        self.progressGraphView.enableTopReferenceAxisFrameLine = true
+        self.progressGraphView.alwaysDisplayDots = true
+        self.progressGraphView.alwaysDisplayPopUpLabels = true
+        
     }
     
     
@@ -69,6 +79,8 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
     
     func receivedWorkoutDataFromServer() {
         print("Got Workout Data")
+        let navTitle = selectedDataArray["exercise"]
+        self.title = ""
         graphCustomizations()
         progressGraphView.reloadGraph()
     }
