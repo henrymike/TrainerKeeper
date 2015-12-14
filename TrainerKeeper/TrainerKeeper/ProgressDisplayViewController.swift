@@ -53,7 +53,7 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
             dataFromExerciseType = currentData["exerciseMeasure"] as! CGFloat
         case "Time":
             let time : NSTimeInterval = currentData["exerciseSeconds"] as! NSTimeInterval
-            let timeFormatter = NSTimeInterval(time) * 10
+            let timeFormatter = NSTimeInterval(time) / 60.0
             dataFromExerciseType = CGFloat(timeFormatter)
 //            dataFromExerciseType = currentData["exerciseSeconds"] as! CGFloat
         default:
@@ -88,6 +88,7 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
 //        self.progressGraphView.enableTopReferenceAxisFrameLine = true
         self.progressGraphView.alwaysDisplayDots = true
         self.progressGraphView.alwaysDisplayPopUpLabels = true
+        self.progressGraphView.formatStringForValues = "%.2f"
         
     }
     
