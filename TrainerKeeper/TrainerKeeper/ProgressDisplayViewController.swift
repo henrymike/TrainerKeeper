@@ -67,6 +67,10 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
         return date as String
     }
     
+    func numberOfGapsBetweenLabelsOnLineGraph(graph: BEMSimpleLineGraphView) -> Int {
+        return 0
+    }
+    
     func graphCustomizations() {
         self.progressGraphView.enablePopUpReport = true
         self.progressGraphView.widthLine = 4.0

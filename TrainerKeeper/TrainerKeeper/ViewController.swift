@@ -15,6 +15,12 @@ class ViewController: UIViewController {
     var dataManager = DataManager.sharedInstance
     
     
+    //MARK: - Display Methods
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        navigationItem.title = nil
+    }
+    
     
     //MARK: - Life Cycle Methods
 
@@ -33,6 +39,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        navigationItem.title = "TrainerKeeper"
         navigationController!.navigationBar.barTintColor = UIColor.init(red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
     }
 
