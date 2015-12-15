@@ -69,7 +69,6 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     func stopwatchUpdateTime() {
         let currentTime = NSDate.timeIntervalSinceReferenceDate()
         let elapsedTime: NSTimeInterval = currentTime - startTime
-        print("ET:\(elapsedTime) = CT:\(currentTime) - ST:\(startTime)")
         var timeToDisplay = elapsedTime
         let minutes = UInt8(timeToDisplay / 60.0)
         timeToDisplay -= (NSTimeInterval(minutes) * 60)
@@ -88,8 +87,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBAction func startButtonPressed(sender: UIButton) {
         if !timer.valid {
-            let aSelector : Selector = "stopwatchUpdateTime"
-            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "stopwatchUpdateTime", userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate()
         }
     }
@@ -147,7 +145,6 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         let currentWorkout = filterWorkoutDetail(currentMemberFirstName, memberLastName: currentMemberLastName, exerciseName: currentExerciseName)
         
         let currentExerciseType = recordDataArray[indexPath.section]!["type"] as! String
-//        print("Current Exercise Type: \(currentExerciseType)")
         switch currentExerciseType {
         case "Reps":
             currentWorkout.exerciseReps = Int(cell.memberRecordTextField.text!)
