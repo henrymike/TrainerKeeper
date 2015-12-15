@@ -39,18 +39,40 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var memberCell : RecordTableViewCell
-        let currentExerciseType = recordDataArray[indexPath.section]!["type"] as! String
+        let currentExercise = recordDataArray[indexPath.section]!
+        let currentExerciseType = currentExercise["type"] as! String
         if currentExerciseType != "Time" {
-//            memberCell = RecordTableViewCell()
-//            memberCell = self.recordMemberArray
             memberCell = tableView.dequeueReusableCellWithIdentifier("recordExerciseRepsCell", forIndexPath: indexPath) as! RecordTableViewCell
-//            memberCell.prepareForReuse()
         } else {
             memberCell = tableView.dequeueReusableCellWithIdentifier("recordExerciseTimeCell", forIndexPath: indexPath) as! RecordTableViewCell
-//            memberCell.prepareForReuse()
         }
         let recordMember = recordMemberArray[indexPath.row]
         memberCell.memberLabel.text = "\(recordMember!["firstName"] as! String!) \(recordMember!["lastName"] as! String!)"
+        let currentMemberFirstName = (recordMember!["firstName"] as! String)
+        let currentMemberLastName = (recordMember!["lastName"] as! String)
+        let currentExerciseName = currentExercise["name"] as! String
+        let currentWorkout = filterWorkoutDetail(currentMemberFirstName, memberLastName: currentMemberLastName, exerciseName: currentExerciseName)
+        print("\(currentMemberFirstName) \(currentMemberLastName) \(currentExerciseName) \(currentExerciseType)")
+        if currentExerciseType == "Time" {
+            if let exerciseSeconds = currentWorkout.exerciseSeconds {
+                memberCell.memberRecordLabel.text = formatTimeFromSeconds(exerciseSeconds)
+            } else {
+                memberCell.memberRecordLabel.text = ""
+            }
+        } else if currentExerciseType == "Reps" {
+            if let exerciseReps = currentWorkout.exerciseReps {
+                memberCell.memberRecordTextField.text = String(exerciseReps)
+            } else {
+                memberCell.memberRecordTextField.text = ""
+            }
+        } else if currentExerciseType == "Measure" {
+            if let exerciseMeasure = currentWorkout.exerciseMeasure {
+                memberCell.memberRecordTextField.text = String(exerciseMeasure)
+            } else {
+                memberCell.memberRecordTextField.text = ""
+            }
+        }
+
         return memberCell
     }
     
@@ -66,10 +88,8 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
     var stopwatchTimeSeconds = 0.0
     @IBOutlet weak var stopwatchLabel :UILabel!
     
-    func stopwatchUpdateTime() {
-        let currentTime = NSDate.timeIntervalSinceReferenceDate()
-        let elapsedTime: NSTimeInterval = currentTime - startTime
-        var timeToDisplay = elapsedTime
+    func formatTimeFromSeconds(seconds: NSTimeInterval) -> String {
+        var timeToDisplay = seconds
         let minutes = UInt8(timeToDisplay / 60.0)
         timeToDisplay -= (NSTimeInterval(minutes) * 60)
         let seconds = UInt8(timeToDisplay)
@@ -80,7 +100,24 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         let strSeconds = String(format: "%02d", seconds)
         let strFraction = String(format: "%02d", fraction)
         
-        stopwatchTimeDisplay = ("\(strMinutes):\(strSeconds):\(strFraction)")
+        return ("\(strMinutes):\(strSeconds):\(strFraction)")
+    }
+    
+    func stopwatchUpdateTime() {
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        let elapsedTime: NSTimeInterval = currentTime - startTime
+//        var timeToDisplay = elapsedTime
+//        let minutes = UInt8(timeToDisplay / 60.0)
+//        timeToDisplay -= (NSTimeInterval(minutes) * 60)
+//        let seconds = UInt8(timeToDisplay)
+//        timeToDisplay -= NSTimeInterval(seconds)
+//        let fraction = UInt8(timeToDisplay * 100)
+//        
+//        let strMinutes = String(format: "%02d", minutes)
+//        let strSeconds = String(format: "%02d", seconds)
+//        let strFraction = String(format: "%02d", fraction)
+        
+        stopwatchTimeDisplay = formatTimeFromSeconds(elapsedTime)
         stopwatchLabel.text = stopwatchTimeDisplay
         stopwatchTimeSeconds = elapsedTime
     }
@@ -151,6 +188,7 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         case "Measure":
             currentWorkout.exerciseMeasure = Double(cell.memberRecordTextField.text!)
         case "Time":
+            // RIP OUT THIS CASE??
             currentWorkout.exerciseSeconds = Double(cell.memberRecordTextField.text!)
         default:
             print("Case Switch Error")
