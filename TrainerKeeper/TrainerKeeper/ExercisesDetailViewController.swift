@@ -15,6 +15,7 @@ class ExercisesDetailViewController: UIViewController, UIPickerViewDataSource, U
     var dataManager = DataManager.sharedInstance
     var selectedExercise  :PFObject?
     var selectedType :String!
+    var detailTitle = ""
     
     @IBOutlet weak var exerciseNameTextField   :UITextField!
     @IBOutlet weak var exerciseTypePickerView  :UIPickerView!
@@ -83,13 +84,13 @@ class ExercisesDetailViewController: UIViewController, UIPickerViewDataSource, U
     }
     
     
-    
     //MARK: - Life Cycle Methods
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         if selectedExercise != nil {
             displaySelectedExerciseDetails()
+            self.title = detailTitle
         }
         exerciseTypeArray.insert("-- select type --", atIndex: 0)
     }

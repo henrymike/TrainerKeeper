@@ -14,6 +14,7 @@ class ExercisesViewController: UIViewController, UITableViewDataSource, UITableV
     //MARK: Properties
     var dataManager = DataManager.sharedInstance
     @IBOutlet weak var exercisesTableView :UITableView!
+    var detailTitle = ""
     
     
     //MARK: Table View Methods
@@ -43,7 +44,9 @@ class ExercisesViewController: UIViewController, UITableViewDataSource, UITableV
             let destController = segue.destinationViewController as! ExercisesDetailViewController
             let indexPath = exercisesTableView.indexPathForSelectedRow!
             let selectedExercise = dataManager.exercisesDataArray[indexPath.row]
+            detailTitle = selectedExercise["name"] as! String
             destController.selectedExercise = selectedExercise
+            destController.detailTitle = detailTitle
             exercisesTableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }

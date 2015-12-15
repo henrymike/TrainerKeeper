@@ -14,6 +14,7 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: - Properties
     var dataManager = DataManager.sharedInstance
     @IBOutlet weak var membersTableView :UITableView!
+    var detailTitle = ""
     
     
     
@@ -63,7 +64,9 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
             let indexPath = membersTableView.indexPathForSelectedRow!
             let filteredArray = filterMemberByClass(dataManager.classesDataArray[indexPath.section])
             let selectedMember = filteredArray[indexPath.row]
+            detailTitle = "\(selectedMember["firstName"] as! String) \(selectedMember["lastName"] as! String)"
             destController.selectedMember = selectedMember
+            destController.detailTitle = detailTitle
             membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }

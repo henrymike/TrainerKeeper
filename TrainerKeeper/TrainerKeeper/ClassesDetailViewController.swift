@@ -15,6 +15,7 @@ class ClassesDetailViewController: UIViewController {
     var dataManager = DataManager.sharedInstance
     var selectedClass    :PFObject?
     var selectedWorkout  :PFObject?
+    var detailTitle = ""
     
     @IBOutlet weak var classNameTextField   :UITextField!
     @IBOutlet weak var classTimeTextField   :UITextField!
@@ -54,7 +55,6 @@ class ClassesDetailViewController: UIViewController {
     
     @IBAction func saveButtonPressed(sender: UIBarButtonItem) {
         print("Save Pressed")
-        
         if selectedClass == nil {
             selectedClass = PFObject(className: "Classes")
         }
@@ -62,9 +62,6 @@ class ClassesDetailViewController: UIViewController {
         selectedClass!["times"] = classTimeTextField.text
         selectedClass!["corporate"] = corporateSwitch.on
         selectedClass!["randoms"] = allowRandomSwitch.on
-        
-        selectedClass!["parent"] = selectedWorkout
-        
         saveAndPop()
     }
     
@@ -80,6 +77,7 @@ class ClassesDetailViewController: UIViewController {
         super.viewWillAppear(true)
         if selectedClass != nil {
             displaySelectedClassDetails()
+            self.title = detailTitle
         }
     }
     

@@ -15,6 +15,7 @@ class MembersDetailViewController: UIViewController, UIPickerViewDataSource, UIP
     var dataManager = DataManager.sharedInstance
     var selectedMember :PFObject?
     var selectedClass  :PFObject?
+    var detailTitle = ""
     
     @IBOutlet weak var firstNameTextField   :UITextField!
     @IBOutlet weak var lastNameTextField    :UITextField!
@@ -97,6 +98,7 @@ class MembersDetailViewController: UIViewController, UIPickerViewDataSource, UIP
         appendHelperToClassesDataArray()
         if selectedMember != nil {
             displaySelectedMemberProfile()
+            self.title = detailTitle
         }
     }
     

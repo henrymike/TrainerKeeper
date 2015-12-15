@@ -14,8 +14,7 @@ class ClassesViewController: UIViewController, UITableViewDataSource, UITableVie
     //MARK: Properties
     var dataManager = DataManager.sharedInstance
     @IBOutlet weak var classesTableView :UITableView!
-    
-    
+    var detailTitle = ""
     
     
     //MARK: Table View Methods
@@ -28,7 +27,7 @@ class ClassesViewController: UIViewController, UITableViewDataSource, UITableVie
             indexPath) as UITableViewCell
         let currentClass = dataManager.classesDataArray[indexPath.row]
         classCell.textLabel!.text = "\(currentClass["groupName"] as! String!)"
-        classCell.detailTextLabel!.text = "\(currentClass["times"] as! String!)"
+        classCell.detailTextLabel!.text = "Info: \(currentClass["times"] as! String!)"
         
         return classCell
     }
@@ -46,7 +45,9 @@ class ClassesViewController: UIViewController, UITableViewDataSource, UITableVie
             let destController = segue.destinationViewController as! ClassesDetailViewController
             let indexPath = classesTableView.indexPathForSelectedRow!
             let selectedClass = dataManager.classesDataArray[indexPath.row]
+            detailTitle = selectedClass["groupName"] as! String
             destController.selectedClass = selectedClass
+            destController.detailTitle = detailTitle
             classesTableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
