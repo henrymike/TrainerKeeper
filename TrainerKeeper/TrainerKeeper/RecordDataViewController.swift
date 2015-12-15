@@ -41,15 +41,20 @@ class RecordDataViewController: UIViewController, UITableViewDataSource, UITable
         var memberCell : RecordTableViewCell
         let currentExerciseType = recordDataArray[indexPath.section]!["type"] as! String
         if currentExerciseType != "Time" {
+//            memberCell = RecordTableViewCell()
+//            memberCell = self.recordMemberArray
             memberCell = tableView.dequeueReusableCellWithIdentifier("recordExerciseRepsCell", forIndexPath: indexPath) as! RecordTableViewCell
+//            memberCell.prepareForReuse()
         } else {
             memberCell = tableView.dequeueReusableCellWithIdentifier("recordExerciseTimeCell", forIndexPath: indexPath) as! RecordTableViewCell
+//            memberCell.prepareForReuse()
         }
         let recordMember = recordMemberArray[indexPath.row]
         memberCell.memberLabel.text = "\(recordMember!["firstName"] as! String!) \(recordMember!["lastName"] as! String!)"
-        
         return memberCell
     }
+    
+    
     
     
     //MARK: - Stopwatch Methods

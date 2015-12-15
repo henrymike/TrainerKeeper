@@ -100,7 +100,7 @@
 			name = "Custom Classes";
 			sourceTree = "<group>";
 		};
-		556E12981C1B59710047FA7E /* Classes */ = {
+		556E12981C1B59710047FA7E /* BEM Graphing Classes */ = {
 			isa = PBXGroup;
 			children = (
 				556E12991C1B59710047FA7E /* BEMAverageLine.h */,
@@ -114,14 +114,15 @@
 				556E12A11C1B59710047FA7E /* BEMSimpleLineGraphView.h */,
 				556E12A21C1B59710047FA7E /* BEMSimpleLineGraphView.m */,
 			);
+			name = "BEM Graphing Classes";
 			path = Classes;
 			sourceTree = "<group>";
 		};
 		55B549E41C0C93C2002F504B = {
 			isa = PBXGroup;
 			children = (
-				556E12981C1B59710047FA7E /* Classes */,
 				55B549EF1C0C93C3002F504B /* TrainerKeeper */,
+				556E12981C1B59710047FA7E /* BEM Graphing Classes */,
 				55B549EE1C0C93C2002F504B /* Products */,
 				A6325D4FB825023999031DF1 /* Pods */,
 				DE2F9AB57B90CE4969C183BA /* Frameworks */,

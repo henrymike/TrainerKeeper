@@ -37,10 +37,6 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
     func lineGraph(graph: BEMSimpleLineGraphView, valueForPointAtIndex index: Int) -> CGFloat {
         let currentData = dataManager.workoutDataArray[index]
         print("Current Data: \(currentData)")
-        
-//        let reps = currentData["exerciseReps"] as! CGFloat
-//        print("Reps:\(reps)")
-//        return reps
 
         let currentExerciseType = selectedDataArray[0]!["type"] as! String
         print("Current Exercise Type: \(currentExerciseType)")
@@ -55,7 +51,6 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
             let time : NSTimeInterval = currentData["exerciseSeconds"] as! NSTimeInterval
             let timeFormatter = NSTimeInterval(time) / 60.0
             dataFromExerciseType = CGFloat(timeFormatter)
-//            dataFromExerciseType = currentData["exerciseSeconds"] as! CGFloat
         default:
             print("Case Switch Error")
         }
@@ -97,14 +92,15 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
     
     func receivedWorkoutDataFromServer() {
         print("Got Workout Data")
-//        let navTitle = selectedDataArray["exercise"]
-        self.title = ""
-        graphCustomizations()
         progressGraphView.reloadGraph()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if graphTitle != "" {
+            self.title = graphTitle
+        }
+        graphCustomizations()
         print("Selected Member Array: \(selectedMemberArray)")
         print("Selected Data Array: \(selectedDataArray)")
         dataManager.fetchWorkoutDetailFromParse(selectedMemberArray[0]!, exercise: selectedDataArray[0]!)

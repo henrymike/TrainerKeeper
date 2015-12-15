@@ -505,7 +505,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4II-rh-VAj">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="4II-rh-VAj">
                                     <size key="itemSize" width="125" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -564,6 +564,7 @@
                                         <connections>
                                             <outlet property="exerciseImageView" destination="Nwb-1M-pX6" id="RJ9-o9-OD7"/>
                                             <outlet property="exerciseLabel" destination="uUm-nh-YPb" id="AVd-9G-aZY"/>
+                                            <segue destination="OVt-tJ-W5a" kind="show" identifier="segueDataSelect" id="jue-PY-vfw"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -583,11 +584,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Data" id="7vM-X2-pZP">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="Nax-2L-ziU">
-                            <connections>
-                                <segue destination="OVt-tJ-W5a" kind="show" identifier="segueDataSelect" id="Npm-Qy-O0u"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="Nax-2L-ziU"/>
                     </navigationItem>
                     <connections>
                         <outlet property="dataSelectCollectionView" destination="kdz-D4-1OC" id="jno-ZG-DvT"/>
@@ -741,7 +738,7 @@
                                     <constraint firstAttribute="height" constant="57" id="Wmf-Ls-Xs7"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pNg-ok-J23">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pNg-ok-J23">
                                 <rect key="frame" x="0.0" y="121" width="600" height="479"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

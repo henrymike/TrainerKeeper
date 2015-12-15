@@ -30,7 +30,7 @@ class ProgressSelectViewController: UIViewController {
         let exerciseCell = collectionView.dequeueReusableCellWithReuseIdentifier("dataCell", forIndexPath: indexPath) as! ExercisesCollectionViewCell
         let currentExercise = dataManager.exercisesDataArray[indexPath.row]
         exerciseCell.exerciseLabel.text = "\(currentExercise["name"] as! String!)"
-        exerciseCell.exerciseImageView.image = UIImage(named: "placeholder")
+        exerciseCell.exerciseImageView.image = UIImage(named: "progress-unselected")
         
         return exerciseCell
     }
@@ -38,14 +38,15 @@ class ProgressSelectViewController: UIViewController {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
         if selectedCell.selected == true {
-            selectedCell.exerciseImageView.image = UIImage(named: "placeholder-checkmark")
+            selectedCell.exerciseImageView.image = UIImage(named: "progress-selected")
         }
+        
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         let selectedCell = dataSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
         if selectedCell.selected == false {
-            selectedCell.exerciseImageView.image = UIImage(named: "placeholder")
+            selectedCell.exerciseImageView.image = UIImage(named: "progress-unselected")
         }
     }
     
@@ -58,8 +59,11 @@ class ProgressSelectViewController: UIViewController {
             if let indexPaths = dataSelectCollectionView.indexPathsForSelectedItems() {
                 for indexPath in indexPaths {
                     selectedDataArray.append(dataManager.exercisesDataArray[indexPath.row])
+                    dataSelectCollectionView.deselectItemAtIndexPath(indexPath, animated: true)
                 }
             }
+            let selectedExerciseType = selectedDataArray[0]!["name"] as! String
+            graphTitle = selectedExerciseType
             let destController = segue.destinationViewController as! ProgressDisplayViewController
             destController.selectedDataArray = selectedDataArray
             destController.selectedMemberArray = selectedMemberArray

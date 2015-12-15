@@ -30,7 +30,7 @@ class RecordSelectViewController: UIViewController, UICollectionViewDataSource, 
         let exerciseCell = collectionView.dequeueReusableCellWithReuseIdentifier("exerciseCell", forIndexPath: indexPath) as! ExercisesCollectionViewCell
         let currentExercise = dataManager.exercisesDataArray[indexPath.row]
         exerciseCell.exerciseLabel.text = "\(currentExercise["name"] as! String!)"
-        exerciseCell.exerciseImageView.image = UIImage(named: "placeholder")
+        exerciseCell.exerciseImageView.image = UIImage(named: "item-unselected")
         
         return exerciseCell
     }
@@ -38,14 +38,14 @@ class RecordSelectViewController: UIViewController, UICollectionViewDataSource, 
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let selectedCell = recordSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
         if selectedCell.selected == true {
-            selectedCell.exerciseImageView.image = UIImage(named: "placeholder-checkmark")
+            selectedCell.exerciseImageView.image = UIImage(named: "item-selected")
         }
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         let selectedCell = recordSelectCollectionView.cellForItemAtIndexPath(indexPath) as! ExercisesCollectionViewCell
         if selectedCell.selected == false {
-            selectedCell.exerciseImageView.image = UIImage(named: "placeholder")
+            selectedCell.exerciseImageView.image = UIImage(named: "item-unselected")
         }
     }
     

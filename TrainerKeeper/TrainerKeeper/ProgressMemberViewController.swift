@@ -49,16 +49,6 @@ class ProgressMemberViewController: UIViewController {
         return memberCell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedCell = membersTableView.cellForRowAtIndexPath(indexPath)
-        selectedCell?.accessoryType = UITableViewCellAccessoryType.Checkmark
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedCell = membersTableView.cellForRowAtIndexPath(indexPath)
-        selectedCell?.accessoryType = UITableViewCellAccessoryType.None
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueMemberSelect" {
             let destController = segue.destinationViewController as! ProgressSelectViewController
@@ -68,6 +58,7 @@ class ProgressMemberViewController: UIViewController {
                     let filteredArray = filterMemberByClass(dataManager.classesDataArray[indexPath.section])
                     let selectedMember = filteredArray[indexPath.row]
                     selectedMemberArray.append(selectedMember)
+                    membersTableView.deselectRowAtIndexPath(indexPath, animated: true)
                 }
                 destController.selectedMemberArray = selectedMemberArray
             }
