@@ -16,7 +16,7 @@ A custom CRM for fitness professionals to keep track of classes, clients, and in
 * Allow admin to input additional fields for Individuals and Groups
 * Add login capability for Individuals to track their own progress at any time
 
-[TrainerKeeper](http://i.imgur.com/Bk6fAPy.png?1)
-[TrainerKeeper](http://i.imgur.com/H3YNgN4.png?1)
-[TrainerKeeper](http://i.imgur.com/4VvWZ9f.png?1)
-[TrainerKeeper](http://i.imgur.com/vcub7FH.png?1)
+![TrainerKeeper](http://i.imgur.com/Bk6fAPy.png?1)
+![TrainerKeeper](http://i.imgur.com/H3YNgN4.png?1)
+![TrainerKeeper](http://i.imgur.com/4VvWZ9f.png?1)
+![TrainerKeeper](http://i.imgur.com/vcub7FH.png?1)
