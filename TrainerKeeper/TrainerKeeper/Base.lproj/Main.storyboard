@@ -383,7 +383,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5by-aa-L0r" customClass="BEMSimpleLineGraphView">
-                                <rect key="frame" x="20" y="85" width="560" height="495"/>
+                                <rect key="frame" x="12" y="72" width="576" height="520"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
@@ -406,11 +406,19 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5by-aa-L0r" firstAttribute="leading" secondItem="Aio-0w-d5X" secondAttribute="leadingMargin" id="KES-gi-gFr"/>
-                            <constraint firstItem="5by-aa-L0r" firstAttribute="top" secondItem="iiK-kc-fIf" secondAttribute="bottom" constant="21" id="nc6-qo-wBE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5by-aa-L0r" secondAttribute="trailing" id="ydn-jk-Ooi"/>
-                            <constraint firstItem="wfY-ze-GpD" firstAttribute="top" secondItem="5by-aa-L0r" secondAttribute="bottom" constant="20" id="z5d-ec-LGY"/>
+                            <constraint firstItem="5by-aa-L0r" firstAttribute="leading" secondItem="Aio-0w-d5X" secondAttribute="leadingMargin" constant="-8" id="ECd-iV-yme"/>
+                            <constraint firstItem="5by-aa-L0r" firstAttribute="leading" secondItem="Aio-0w-d5X" secondAttribute="leadingMargin" constant="8" id="KES-gi-gFr"/>
+                            <constraint firstItem="5by-aa-L0r" firstAttribute="top" secondItem="iiK-kc-fIf" secondAttribute="bottom" constant="8" id="nc6-qo-wBE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5by-aa-L0r" secondAttribute="trailing" constant="-8" id="pbP-fk-zgG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5by-aa-L0r" secondAttribute="trailing" constant="8" id="ydn-jk-Ooi"/>
+                            <constraint firstItem="wfY-ze-GpD" firstAttribute="top" secondItem="5by-aa-L0r" secondAttribute="bottom" constant="8" id="z5d-ec-LGY"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KES-gi-gFr"/>
+                                <exclude reference="ydn-jk-Ooi"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Progress" id="LZI-5R-bkR">
                         <barButtonItem key="rightBarButtonItem" systemItem="stop" id="qFB-YM-uj2">
