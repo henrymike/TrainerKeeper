@@ -412,7 +412,13 @@
                             <constraint firstItem="wfY-ze-GpD" firstAttribute="top" secondItem="5by-aa-L0r" secondAttribute="bottom" constant="20" id="z5d-ec-LGY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Progress" id="LZI-5R-bkR"/>
+                    <navigationItem key="navigationItem" title="Progress" id="LZI-5R-bkR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="qFB-YM-uj2">
+                            <connections>
+                                <action selector="popBackToHomeScreen:" destination="OVt-tJ-W5a" id="6Tt-7X-kGD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="progressGraphView" destination="5by-aa-L0r" id="S1v-Ab-2gT"/>
                     </connections>
@@ -1174,87 +1180,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RmC-gw-YvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="1755"/>
-        </scene>
-        <!--Build a Workout-->
-        <scene sceneID="KVu-Lc-14q">
-            <objects>
-                <viewController id="9aV-2S-6jW" customClass="WorkoutBuilderViewController" customModule="TrainerKeeper" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DFR-v2-h1D"/>
-                        <viewControllerLayoutGuide type="bottom" id="Gfa-85-hOR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GzA-qZ-yF5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H6a-y1-Dwx">
-                                <rect key="frame" x="0.0" y="118" width="600" height="482"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" showsReorderControl="YES" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="workoutBuilderCell" textLabel="7JK-cl-DUa" style="IBUITableViewCellStyleDefault" id="E0Z-8g-20E">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E0Z-8g-20E" id="olC-Cj-R4T">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7JK-cl-DUa">
-                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="9aV-2S-6jW" id="8fN-7j-muQ"/>
-                                    <outlet property="delegate" destination="9aV-2S-6jW" id="s3F-c1-ahk"/>
-                                </connections>
-                            </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ybK-CZ-CZz">
-                                <rect key="frame" x="89" y="78" width="422" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="jbq-SE-lJa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="ybK-CZ-CZz" secondAttribute="trailing" constant="69" id="Ku2-fw-BUU"/>
-                            <constraint firstItem="ybK-CZ-CZz" firstAttribute="top" secondItem="DFR-v2-h1D" secondAttribute="bottom" constant="58" id="WHa-fn-vvo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="H6a-y1-Dwx" secondAttribute="trailing" constant="-20" id="mnP-QE-Fao"/>
-                            <constraint firstItem="H6a-y1-Dwx" firstAttribute="top" secondItem="ybK-CZ-CZz" secondAttribute="bottom" constant="10" id="qRX-Ws-6NU"/>
-                            <constraint firstItem="ybK-CZ-CZz" firstAttribute="leading" secondItem="GzA-qZ-yF5" secondAttribute="leadingMargin" constant="69" id="tQA-Uh-gTR"/>
-                            <constraint firstItem="Gfa-85-hOR" firstAttribute="top" secondItem="H6a-y1-Dwx" secondAttribute="bottom" id="vsF-Of-aEJ"/>
-                            <constraint firstItem="H6a-y1-Dwx" firstAttribute="leading" secondItem="GzA-qZ-yF5" secondAttribute="leadingMargin" constant="-20" id="woi-0v-QzK"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Build a Workout" id="y62-NO-gcI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RTG-wG-RlD">
-                            <connections>
-                                <action selector="saveButtonPressed:" destination="9aV-2S-6jW" id="3Ga-2d-z9i"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="workoutBuilderTableView" destination="H6a-y1-Dwx" id="5Bd-4r-7tM"/>
-                        <outlet property="workoutNameTextField" destination="ybK-CZ-CZz" id="aU6-9J-hdg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K46-iM-Qd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1057" y="2481"/>
         </scene>
         <!--Classes Detail-->
         <scene sceneID="11D-h5-T1W">

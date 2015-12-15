@@ -26,7 +26,6 @@
 		55C3C9041C10889D00612C39 /* ClassesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9031C10889D00612C39 /* ClassesDetailViewController.swift */; };
 		55C3C9061C10A05300612C39 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9051C10A05300612C39 /* ExercisesViewController.swift */; };
 		55C3C9081C10A06400612C39 /* ExercisesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9071C10A06400612C39 /* ExercisesDetailViewController.swift */; };
-		55C3C90A1C10E45000612C39 /* WorkoutBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9091C10E45000612C39 /* WorkoutBuilderViewController.swift */; };
 		55C3C90D1C1200A200612C39 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C90C1C1200A200612C39 /* MembersViewController.swift */; };
 		55C3C90F1C1219F700612C39 /* RecordMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C90E1C1219F700612C39 /* RecordMembersViewController.swift */; };
 		55C3C9111C121BAD00612C39 /* RecordSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C3C9101C121BAD00612C39 /* RecordSelectViewController.swift */; };
@@ -66,7 +65,6 @@
 		55C3C9031C10889D00612C39 /* ClassesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassesDetailViewController.swift; sourceTree = "<group>"; };
 		55C3C9051C10A05300612C39 /* ExercisesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		55C3C9071C10A06400612C39 /* ExercisesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesDetailViewController.swift; sourceTree = "<group>"; };
-		55C3C9091C10E45000612C39 /* WorkoutBuilderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutBuilderViewController.swift; sourceTree = "<group>"; };
 		55C3C90C1C1200A200612C39 /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		55C3C90E1C1219F700612C39 /* RecordMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordMembersViewController.swift; sourceTree = "<group>"; };
 		55C3C9101C121BAD00612C39 /* RecordSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordSelectViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				55C3C9031C10889D00612C39 /* ClassesDetailViewController.swift */,
 				55C3C9051C10A05300612C39 /* ExercisesViewController.swift */,
 				55C3C9071C10A06400612C39 /* ExercisesDetailViewController.swift */,
-				55C3C9091C10E45000612C39 /* WorkoutBuilderViewController.swift */,
 				55C3C90E1C1219F700612C39 /* RecordMembersViewController.swift */,
 				55C3C9101C121BAD00612C39 /* RecordSelectViewController.swift */,
 				55C3C9121C121CF700612C39 /* RecordDataViewController.swift */,
@@ -323,7 +320,6 @@
 				55E117A41C15D8E2006C36CA /* RecordTableViewCell.swift in Sources */,
 				55C3C90D1C1200A200612C39 /* MembersViewController.swift in Sources */,
 				55C3C90F1C1219F700612C39 /* RecordMembersViewController.swift in Sources */,
-				55C3C90A1C10E45000612C39 /* WorkoutBuilderViewController.swift in Sources */,
 				55C3C9061C10A05300612C39 /* ExercisesViewController.swift in Sources */,
 				55C3C9081C10A06400612C39 /* ExercisesDetailViewController.swift in Sources */,
 				556E12A31C1B59710047FA7E /* BEMAverageLine.m in Sources */,

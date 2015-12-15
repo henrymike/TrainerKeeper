@@ -87,6 +87,10 @@ class ProgressDisplayViewController: UIViewController, BEMSimpleLineGraphDataSou
         
     }
     
+    @IBAction func popBackToHomeScreen(sender: UIBarButtonItem) {
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
     
     //MARK: Life Cycle Methods
     
