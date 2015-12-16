@@ -31,13 +31,13 @@ class ExercisesViewController: UIViewController, UITableViewDataSource, UITableV
         return classCell
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            let memberToDelete = dataManager.exercisesDataArray[indexPath.row]
-            memberToDelete.deleteInBackground()
-            dataManager.fetchExercisesFromParse()
-        }
-    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            let memberToDelete = dataManager.exercisesDataArray[indexPath.row]
+//            memberToDelete.deleteInBackground()
+//            dataManager.fetchExercisesFromParse()
+//        }
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueExerciseEdit" {

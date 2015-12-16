@@ -50,13 +50,13 @@ class MembersViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            let memberToDelete = dataManager.membersDataArray[indexPath.row]
-            memberToDelete.deleteInBackground()
-            dataManager.fetchMembersFromParse()
-        }
-    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            let memberToDelete = dataManager.membersDataArray[indexPath.row]
+//            memberToDelete.deleteInBackground()
+//            dataManager.fetchMembersFromParse()
+//        }
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueMemberEdit" {

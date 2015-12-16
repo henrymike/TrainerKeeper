@@ -32,13 +32,13 @@ class ClassesViewController: UIViewController, UITableViewDataSource, UITableVie
         return classCell
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            let memberToDelete = dataManager.classesDataArray[indexPath.row]
-            memberToDelete.deleteInBackground()
-            dataManager.fetchClassesFromParse()
-        }
-    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if editingStyle == UITableViewCellEditingStyle.Delete {
+//            let memberToDelete = dataManager.classesDataArray[indexPath.row]
+//            memberToDelete.deleteInBackground()
+//            dataManager.fetchClassesFromParse()
+//        }
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueClassEdit" {
